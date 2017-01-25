@@ -1,0 +1,86 @@
+$def with (message)
+$var msg: $message
+
+<div class="col-md-12">
+    <video id="video" autoplay="autoplay" controls="controls"></video>
+    <hr />
+    <button class="btn btn-primary" id="play">Play</button>
+    <button class="btn btn-primary" id="stop">Stop</button>
+    <button class="btn btn-primary" id="snap">Snap</button>
+    <button class="btn btn-primary" id="share">Share</button>
+    <hr />
+    <canvas id="image"></canvas>
+</div>
+
+
+<script type="text/javascript">
+    function hasGetUserMedia(){
+        return !!(navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+    };
+
+    var errCallback = function(e) {
+        console.log('Access to camera rejected')
+    };
+
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia
+
+
+    var videoStream = null
+    var video = document.getElementById('video');
+    var createSrc = window.URL ? window.URL.createObjectURL : function(stream) {return stream;};
+
+    function startVideo(){
+        navigator.getUserMedia(
+            {video: true},
+            function(stream) {
+                videoStream = stream
+                video.src = createSrc(stream);
+                video.play();
+            },
+            function(err){
+                console.log('Something went wrong : ', err.code)
+            });
+    };
+
+    function stopVideo(){
+        video.pause();
+        var tracks = videoStream.getTracks()
+        tracks.forEach(function(track){
+            track.stop();
+        });
+        video.src = null;
+    };
+
+    function snapshot(){
+        var canvas = document.getElementById('image');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext('2d').drawImage(video, 0,0)
+    };
+
+    function sendImg(){
+        var imgdata = document.getElementById('image').toDataURL("img/png");
+        imgdata = imgdata.replace('data:image/png;base64,','')
+
+        data = {
+            'imgdata': imgdata,
+            'encoding' : 'base64',
+            'format': 'image/png'
+        }
+
+        $$.ajax({
+            url: '/scan/ajax_process/',
+            type: 'POST',
+            data: data,
+            contentType: "application/json"
+        })
+    }
+
+    $$(document).ready(function(){
+        $$('#play').on('click', startVideo);
+        $$('#stop').on('click', stopVideo);
+        $$('#snap').on('click', snapshot);
+        $$('#share').on('click', sendImg);
+    });
+
+</script>

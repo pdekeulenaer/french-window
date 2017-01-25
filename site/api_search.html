@@ -1,0 +1,20 @@
+$def with (message)
+
+$var msg: $message
+
+<h2>Search for a book by ISBN code</h2>
+<hr />
+
+<form method='POST' action="/books/isbn/" class="form-horizontal">
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="isbn13">ISBN13 number</label>
+    <div class="col-sm-8">
+        <input type="text" class="form-control" id="isbn13" name="isbn13" placeholder="987xxxxxxxxxx">
+    </div>
+    <div class="col-sm-2">
+        <input type="submit" class="form-control btn-primary" value="Submit" name="submit">
+    </div>
+</div>
+
+</form>

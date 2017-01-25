@@ -1,0 +1,20 @@
+$def with (message, books)
+$var msg: $message
+
+
+<table width="500px">
+    <tr width="500px">
+        <td width="10%"><b>Nr</b></td>
+        <td width="50%"><b>Title</b></td>
+        <td width="20%"><b>Author</b></td>
+        <td width="20%"><b>Publisher</b></td>
+    </tr>
+    $for book in books:
+        <tr>
+            <td>$loop.index</td>
+            <td><a href='/books/view/$book.id'>$book.title</a></td>
+            <td><a href='/books/list/?authors.id=$book.author.id'>$book.author.name</a></td>
+            <td>$book.publisher</td>
+        </tr>
+
+</table>

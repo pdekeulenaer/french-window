@@ -1,0 +1,380 @@
+$def with (message)
+$var msg: $message
+
+<div class="col-md-12">
+
+    <select id="video-select" class="form-control">
+
+    </select>
+
+    <video id="video" autoplay="autoplay" controls="controls"></video>
+    <hr />
+    <button class="btn btn-danger" id="stream">Scan</button>
+    <button class="btn btn-primary" id="stop">Stop</button>
+    <hr />
+    <canvas id="image" class="hidden"></canvas>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#add-popup">Open</button>
+</div>
+
+<div id="add-popup" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Confirm new book</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form method='POST' action="/books/ajax_add/" class="form-horizontal">
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="title">Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Enter title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="author_name">Author</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="author_name" name="authors.name" placeholder="Enter author">
+                            <input type="hidden" id="author_id" name="author_id">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="publish_date">Publication date</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="publish_date" name="publish_date" placeholder="1990-07-04">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="publisher">Publisher</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="publisher" name="publisher" placeholder="Publisher">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="language">Language</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="language" name="language" placeholder="en">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="isbn10">ISBN10</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="isbn10" name="isbn10" placeholder="ISBN10 number">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="isbn13">ISBN13</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="isbn13" name="isbn13" placeholder="ISBN13 number">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="summary">Summary</label>
+                        <div class="col-sm-10">
+                            <textarea type="text" class="form-control" id="summary" name="summary" placeholder="Enter summary" rows="5"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="is_series">Part of series?</label>
+                        <div class="col-sm-10">
+                            <input type="radio" class="radio-inline" id="is_series_yes" name="is_series" data-id="is_series_yes" value="True">Yes
+                            <input type="radio" class="radio-inline" id="is_series_no" name="is_series" data-id="is_series_no" value="False" checked>No
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="series_name_field">
+                        <label class="control-label col-sm-2" for="series_name">Series name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="series_name" name="series.name" placeholder="The Lord of the Rings">
+                            <input type="hidden" id="series_id" name="series_id" value="-1">
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="series_nr_field">
+                        <label class="control-label col-sm-2" for="series_nr"># in series</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="series_nr" name="series_nr" placeholder="1">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="hidden" name="in_library" id="in_library" value="1">
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="save-book">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    // Setup variables
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia
+    var videoStream = null
+    var video = document.getElementById('video');
+    var createSrc = window.URL ? window.URL.createObjectURL : function(stream) {return stream;};
+    var device = null
+    var timer = null
+    var interval = 100
+    var playing = false
+
+    // setup functions
+    function startVideo(){
+        playing = true
+        vidSource = $$('#video-select').val()
+        console.log('Video source selected: ' + vidSource)
+        navigator.getUserMedia(
+            {video: { deviceId: vidSource }},
+            function(stream) {
+                videoStream = stream
+                video.src = createSrc(stream);
+                video.play();
+            },
+            function(err){
+                console.log('Something went wrong : ', err.code)
+            });
+    };
+
+    function stopVideo(){
+        video.pause();
+        var tracks = videoStream.getTracks()
+        tracks.forEach(function(track){
+            track.stop();
+        });
+        video.src = '';
+        playing = false
+    };
+
+    function snapshot(){
+        var canvas = document.getElementById('image');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext('2d').drawImage(video, 0,0)
+    };
+
+    function sendImg(){
+        var imgdata = document.getElementById('image').toDataURL("img/png");
+        imgdata = imgdata.replace('data:image/png;base64,','');
+
+        data = {
+            'imgdata': imgdata,
+            'encoding' : 'base64',
+            'format': 'image/png'
+        };
+        $$.ajax({
+            url: '/scan/ajax_process/',
+            type: 'POST',
+            data: data,
+            dataType: "json",
+            success: function(resp){
+                // print to console
+                if (resp.hits > 0){
+                    $$.each(resp.data, function(index, datum){
+                        console.log(index + ': ' + datum.type + ' - ' + datum.value)
+                    })
+                    $$('#add-popup').modal('show');
+                    // prefill modal
+                    searchISBN(resp.data[0].type, resp.data[0].value);
+                }
+            }
+        });
+    };
+
+    function searchISBN(type, isbn){
+        $$.ajax({
+            url: '/scan/ajax_bookdata/',
+            type: 'POST',
+            data: {'key' : isbn, 'type': type},
+            dataType: 'json',
+            success: prefillData
+        });
+    };
+
+    function clearData(){
+        $$('#title').val('');
+        $$('#author_name').val('');
+        $$('#author_id').val('');
+        $$('#publisher').val('');
+        $$('#language').val('');
+        $$('#isbn10').val('');
+        $$('#isbn13').val('');
+        $$('#summary').val('');
+        $$('#publish_date').val('');
+        $$('#series_name').val('');
+        $$('#series_id').val(-1);
+        $$('input:radio[name=is_series]')[0].checked = false;
+        $$('input:radio[name=is_series]')[1].checked = true;
+        hideSeries();
+    }
+
+    function prefillData(data){
+        console.log(data);
+        $$('#title').val(data.title);
+        if (data.author != null) {
+            $$('#author_id').val(data.author.id);
+            $$('#author_name').val(data.author.name);
+        } else {
+            $$('#author_name').val(data.author_name);
+        }
+        $$('#publisher').val(data.publisher);
+        $$('#language').val(data.language);
+        $$('#isbn10').val(data.isbn10);
+        $$('#isbn13').val(data.isbn13);
+        $$('#summary').val(data.summary);
+        $$('#publish_date').val(data.publish_date)
+    }
+
+    function videoSources(){
+        navigator.mediaDevices.enumerateDevices().then(function(devices){
+            devices.forEach(function(source){
+
+                var vidSelect = $$('#video-select')
+                if (source.kind == 'videoinput') {
+                    // only add video inputs to the selector
+                    console.log(source.kind + ': ' + source.label + ' (' + source.deviceId + ')');
+                    vidSelect.append($$('<option>', {
+                        value: source.deviceId,
+                        text: source.label
+                    }));
+                }
+            });
+        });
+    };
+
+
+    function startStream(){
+        startVideo();
+        setTimeout(function() {
+            timer = setInterval(function(){
+                snapshot();
+                sendImg();
+            }, interval);
+        }, 1000);
+    };
+
+    function stopStream(){
+        clearInterval(timer)
+    };
+
+    $$(document).ready(function(){
+        videoSources()
+        $$('#add-popup').on('hide.bs.modal', function (evt) {
+            if (playing) {
+                startStream();
+                video.play();
+            }
+          });
+
+        $$('#add-popup').on('show.bs.modal', function (evt) {
+              clearData();
+              stopStream();
+              video.pause();
+          });
+
+        $$('#play').on('click', startVideo);
+        $$('#stop').on('click', stopVideo);
+        $$('#stop').on('click', stopStream);
+        $$('#snap').on('click', snapshot);
+        $$('#share').on('click', sendImg);
+        $$('#stream').on('click', startStream);
+    });
+
+</script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('#author_name').autocomplete({
+            serviceUrl: '/ajax/search_author/',
+            ajaxSettings: { method: 'POST'},
+            onSelect: function(suggestion) {
+                setIdentifier('author', suggestion.data);
+            }
+        });
+        jQuery('#series_name').autocomplete({
+            serviceUrl: '/ajax/search_series/',
+            ajaxSettings: {method: 'POST'},
+            onSelect: function(suggestion) {
+                setIdentifier('series',suggestion.data);
+            }
+        });
+    });
+
+    function setIdentifier(el,id){
+        jQuery('#'+ el + '_id').val(id);
+    };
+
+    function hideSeries(){
+        jQuery('#series_nr_field').hide();
+        jQuery('#series_name_field').hide();
+    };
+
+    function showSeries(){
+        jQuery('#series_nr_field').show();
+        jQuery('#series_name_field').show();
+    };
+
+    function toggleSeries(){
+        jQuery(':radio').change(function (event) {
+            var id = jQuery(this).data('id');
+            if (id == 'is_series_yes') {
+                showSeries();
+            } else if (id == 'is_series_no') {
+                hideSeries();
+            }
+        });
+    };
+
+   function saveBook(){
+        var data = {
+            'title' : $$('#title').val(),
+            'authors.name' : $$('#author_name').val(),
+            'author_id' : $$('#author_id').val(),
+            'publisher' : $$('#publisher').val(),
+            'language' : $$('#language').val(),
+            'isbn10' : $$('#isbn10').val(),
+            'isbn13' : $$('#isbn13').val(),
+            'summary' : $$('#summary').val(),
+            'publish_date' : $$('#publish_date').val(),
+            'series.name' : $$('#series_name').val(),
+            'series_id' : $$('#series_id').val(),
+            'series_nr' : $$('#series_nr').val(),
+            'in_library' : $$('#in_library').val(),
+            'is_series' : function(){
+                if ($$('#is_series_yes').is(':checked')) {
+                    return 'True'
+                } else {
+                    return 'False'
+                }
+            }
+        };
+        $$.ajax({
+            url: '/books/ajax_save/',
+            type: 'POST',
+            data : data,
+            dataType: 'json',
+            success: function(resp){
+                console.log(resp)
+
+            }
+        })
+    };
+
+    jQuery(document).ready(function(){
+        hideSeries();
+        toggleSeries();
+        $$('#save-book').on('click', function(){
+            saveBook();
+            $$('#add-popup').modal('hide');
+        })
+    });
+</script>

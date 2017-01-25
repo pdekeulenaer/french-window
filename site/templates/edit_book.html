@@ -1,0 +1,66 @@
+$def with (message, book)
+
+$var msg: $message
+
+<b>This is a form to add new books</b>
+
+<form method='POST'>
+<input type="hidden" name="id" value="$book.id">
+<table border='0px' width='400px'>
+
+    <tr>
+        <td width='30%'>Title</td>
+        <td width='70%'><input type="text" name="title" value="$book.title"></td>
+    </tr>
+    <tr>
+        <td>Author</td>
+        <td><input type="text" name="author_name" value="$book.author.name"></td>
+    </tr>
+    <tr>
+        <td>Language</td>
+        <td><input type="text" name="language" value="$book.language"></td>
+    </tr>
+    <tr>
+        <td>ISBN10</td>
+        <td><input type="text" name="isbn10" value="$book.isbn10"></td>
+    </tr>
+    <tr>
+        <td>ISBN13</td>
+        <td><input type="text" name="isbn13" value="$book.isbn13"></td>
+    </tr>
+    <tr>
+        <td>Publisher</td>
+        <td><input type="text" name="publisher" value="$book.publisher"></td>
+    </tr>
+    <tr>
+        <td>Summary</td>
+        <td><textarea name="summary" rows="5" cols="22">$book.summary</textarea></td>
+    </tr>
+    <tr>
+        <td>Is series?</td>
+        <td><input type="radio" name="is_series" value="yes" id="yeschecked"> Yes
+            <input type="radio" name="is_series" value="no" id="nochecked"> No
+        </td>
+    </tr>
+    <tr>
+        <td>Series nr</td>
+        <td><input type="number" name="series_nr"  value="$book.series_nr"></td>
+    </tr>
+    <tr>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <center><input type="submit" value="Update book"></center>
+        </td>
+    </tr>
+</table>
+
+</form>
+
+
+<script language="javascript">
+    $if book.is_series:
+        document.getElementById('yeschecked').checked=true;
+    $else:
+        document.getElementById('nochecked').checked=true;
+</script>

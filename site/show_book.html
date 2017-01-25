@@ -1,0 +1,68 @@
+$def with (message, book)
+
+$var msg: $message
+
+<form method='POST' action="/add">
+
+<table border='0px' width='400px'>
+
+    <tr>
+        <td width='30%'>Title</td>
+        <td width='70%'>$book.title</td>
+    </tr>
+    <tr>
+        <td>Author</td>
+        <td width='70%'>$book.author.name</td>
+    </tr>
+    <tr>
+        <td>Language</td>
+        <td width='70%'>$book.language</td>
+    </tr>
+    <tr>
+        <td>ISBN10</td>
+        <td width='70%'>$book.isbn10</td>
+    </tr>
+    <tr>
+        <td>ISBN13</td>
+        <td width='70%'>$book.isbn13</td>
+    </tr>
+    <tr>
+        <td>Publisher</td>
+        <td width='70%'>$book.publisher</td>
+    </tr>
+    <tr>
+        <td>Summary</td>
+        <td width='70%'>$book.summary</td>
+    </tr>
+    <tr>
+        <td>Is series?</td>
+        <td width='70%'>$book.is_series</td>
+    </tr>
+    <tr>
+        <td>Series nr</td>
+        <td width='70%'>$book.series_nr</td>
+    </tr>
+    <tr>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <center>
+                <input type="submit" value="Delete" action="POST">
+                <input type="submit" value="Edit" action="GET">
+            </center>
+        </td>
+    </tr>
+</table>
+
+</form>
+
+$if show:
+    <script language='javascript'>
+        document.getElementById('title').value = '$prefill.title'
+        document.getElementById('author_name').value = '$prefill.author_name'
+        document.getElementById('language').value = '$prefill.language'
+        document.getElementById('isbn10').value = '$prefill.isbn10'
+        document.getElementById('isbn13').value = '$prefill.isbn13'
+        document.getElementById('publisher').value = '$prefill.publisher'
+        document.getElementById('summary').value = '$prefill.summary'
+    </script>

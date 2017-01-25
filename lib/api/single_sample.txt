@@ -1,0 +1,75 @@
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "sOI8yeI4a5wC",
+   "etag": "BdJgQhjL54I",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/sOI8yeI4a5wC",
+   "volumeInfo": {
+    "title": "Something Fresh",
+    "authors": [
+     "P. G. Wodehouse"
+    ],
+    "publisher": "Random House",
+    "publishedDate": "2008",
+    "description": "Blandings is now a major BBC One television series starring Jennifer Saunders and Timothy Spall. This is the first Blandings novel, In whuch P.G. Wodehouse intorduces us to the delightfully dotty Lord Emsworth, his bone-headed younger son, the Hon. Freddie Threepwood, his log-suffering secretary, the Efficient Baxter, and Beach the Blandings butler. As Wodehouse wrote, 'without at least one imposter on the premises, Blandings Castle is never itself'. In Something Fresh there are two, each with an eye on a valuable Egytian amulet which Lord Emsworth has acquired without quite realizing how it came into his pocket. But of course things get a lot more complicated than this...",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780099513780"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0099513781"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 260,
+    "printType": "BOOK",
+    "categories": [
+     "Blandings Castle (England : Imaginary place)"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "0.8.0.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=sOI8yeI4a5wC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=sOI8yeI4a5wC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.at/books?id=sOI8yeI4a5wC&dq=isbn:9780099513780&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.at/books?id=sOI8yeI4a5wC&dq=isbn:9780099513780&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.at/books/about/Something_Fresh.html?hl=&id=sOI8yeI4a5wC"
+   },
+   "saleInfo": {
+    "country": "AT",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "AT",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": true
+    },
+    "webReaderLink": "http://books.google.at/books/reader?id=sOI8yeI4a5wC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "A beautiful new edition of this classic. This is the first Blandings novel, in which P.G. Wodehouse introduces us to the delightfully dotty Lord Emsworth, his bone-headed younger son, the Hon."
+   }
+  }
+ ]
+}

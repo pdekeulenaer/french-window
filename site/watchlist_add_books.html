@@ -1,0 +1,46 @@
+$def with (message, books)
+
+$var msg: $message
+
+<script type="text/javascript">
+
+</script>
+
+
+<div class="col-sm-8">
+    <h3>Do you wish to add any of these to your watchlist?</h3>
+    <hr />
+    $for book in books:
+        <div class="panel panel-default">
+          <div class="panel-heading clearfix" data-toggle="collapse" data-target="#panelcontent_$loop.index" role="click-panel">
+            <h3 class="panel-title pull-left">
+                <strong>$book.title</strong> by <i>$book.author.name</i>
+            </h3>
+            <button class="btn btn-default pull-right">
+                <span class="glyphicon glyphicon-eye-open"></span> Add to wachlist
+            </button>
+          </div>
+           <div id="panelcontent_$loop.index" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="media">
+                  <div class="media-left">
+                    <a href="#">
+                      <img src="$book.image_link" class="media-object">
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <p>$book.summary</p>
+                    <p><strong>Expected $book.publish_date</strong></p>
+                  </div>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+
+<div class="col-sm-4">
+    <h3>Your current watchlist</h3>
+    <hr />
+</div>
+
+

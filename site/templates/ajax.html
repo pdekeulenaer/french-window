@@ -1,0 +1,58 @@
+$def with (message)
+
+$var msg: $message
+
+<b>This is a form to test AJAX functions</b>
+
+<hr />
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('#author_name').autocomplete({
+            serviceUrl: '/ajax/search_author/',
+            ajaxSettings: { method: 'POST'},
+            onSelect: function(suggestion) {
+                setAuthor(suggestion.data);
+            }
+        });
+    });
+
+    function setAuthor(id, name){
+        jQuery('#author_id').val(id);
+    };
+
+    // function showAuthors(jsondata){
+    //     jQuery.each(jsondata, function(index, datum){
+    //         alert(datum.name)
+
+    //     })
+    // };
+
+
+    // jQuery(document).ready(function() {
+    //     jQuery(".button").click(function() {
+    //         var instr = jQuery("input#name").val();
+    //         jQuery.ajax({
+    //             type: "POST",
+    //             url: "/ajax/search_author/",
+    //             data: {name: instr},
+    //             dataType: 'json',
+    //             success: function(data) {
+    //                 showAuthors(data);
+    //             },
+    //         });
+    //         return false;
+    //     });
+    // });
+
+</script>
+
+
+
+
+<form method='POST' action='/ajax/'>
+Author name: <input type='text' name='name' id="author_name">
+<input type='hidden' name='author_id' value='' id='author_id'>
+<input type='submit' name='submit' value="Submit">
+</form>

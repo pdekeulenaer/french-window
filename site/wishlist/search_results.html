@@ -1,0 +1,114 @@
+$def with (message, books)
+$var msg: $message
+
+<div class="col-sm-8">
+    <h3>Search for books to add to your wishlist</h3>
+    <hr />
+    <form method='POST' action='/wishlist/search/' class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-sm-1">Author</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="author_name" name="author_name" placeholder="Ernest Hemingway">
+            <input type="hidden" id="author_id" name="author_id" value="-1">
+        </div>
+        <label class="control-label col-sm-1">Title</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="title" name="title" placeholder="The hobbit">
+        </div>
+        <div class="col-sm-2">
+            <button type="submit" class="form-control btn-primary" name="submit">
+                <span class="glyphicon glyphicon-search pull-left" aria-hidden="true"></span>Search
+            </button>
+        </div>
+    </div>
+    </form>
+    <hr />
+    <div id="searchresults">
+        $for book in books:
+        <div class="panel panel-default">
+          <div class="panel-heading clearfix" data-toggle="collapse" data-target="#panelcontent_$loop.index" role="click-panel">
+            <h3 class="panel-title pull-left">
+                <strong>$book.title</strong> by <i>$book.author.name</i>
+            </h3>
+            <button class="btn btn-default pull-right" onclick="wishlistAdd('$book.title', '$book.author.id', '$book.summary', '$book.publish_date')">
+                <span class="glyphicon glyphicon-eye-open"></span> Add to wachlist
+            </button>
+          </div>
+           <div id="panelcontent_$loop.index" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="media">
+                  <div class="media-left">
+                    <a href="#">
+                      <img src="$book.image_link" class="media-object">
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <p>$book.summary</p>
+                    <p><strong>Expected $book.publish_date</strong></p>
+                  </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-4">
+    <h3>Your current wishlist</h3>
+    <hr />
+    <div id="wishlist_data">
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('#author_name').autocomplete({
+            serviceUrl: '/ajax/search_author/',
+            ajaxSettings: { method: 'POST'},
+            onSelect: function(suggestion) {
+                jQuery('#author_id').val(suggestion.data);
+            }
+        });
+    });
+
+  function wishlistAdd(title, author_id, summary, publish_date){
+        $$.ajax({
+            type: 'POST',
+            url: '/wishlist/ajax_add/',
+            dataType: 'json',
+            data: {
+                'title': title,
+                'author_id': author_id,
+                'summary': summary,
+                'publish_date': publish_date
+            },
+            success: function(data){
+                wishlistLoad()
+            }
+        });
+    };
+
+
+    function wishlistLoad(){
+        $$.ajax({
+            type: 'POST',
+            url: '/wishlist/ajax_list/',
+            dataType: 'json',
+            success: wishlistPopulate
+        });
+    };
+
+    function wishlistPopulate(data){
+        $$('wishlist_data').html('')
+        $$.each(data, function(index, datum){
+            alert(datum)
+            $$('wishlist_data').append(datum.title)
+        });
+    };
+
+    $$(document).ready(function(){
+        wishlistLoad()
+    })
+</script>

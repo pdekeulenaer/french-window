@@ -1,0 +1,63 @@
+$def with (message, book)
+
+$var msg: $message
+
+<div class="row">
+    <div class="col-sm-10">
+            <h2>$book.title</h2>
+            <h4>By $book.author.name</h4>
+    </div>
+
+    <div>
+        <form method="POST" action="/books/delete/">
+            <input type="hidden" value="$book.id" name="id">
+            <button type="submit" class="btn btn-default pull-right" aria-label="Delete">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </button>
+        </form>
+            <button type="button" class="btn btn-default pull-right" aria-label="Edit" onclick="location.href = '/books/edit/$book.id';">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            </button>
+    </div>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-sm-8">$:book.summary</div>
+    <div class="col-sm-4">
+        <table class="table table-striped">
+            $if book.is_series == 'True':
+                <tr>
+                    <td>Part of</td>
+                    <td><strong><a href="/books/list/?series_id=$book.series_id">$book.series.name</a><strong></td>
+                </tr>
+                <tr>
+                    <td>Nr in series</td>
+                    <td>$book.series_nr</td>
+                </tr>
+            <tr>
+                <td>Author</td>
+                <td>$book.author
+            </tr>
+            <tr>
+                <td>Publication date</td>
+                <td>$book.publish_date</td>
+            <tr>
+                <td>ISBN 10</td>
+                <td>$book.isbn10
+            </tr>
+            <tr>
+                <td>ISBN 13</td>
+                <td>$book.isbn13
+            </tr>
+            <tr>
+                <td>Publisher</td>
+                <td>$book.publisher
+            </tr>
+            <tr>
+                <td>Language</td>
+                <td>$book.language
+            </tr>
+        </table>
+    </div>
+</div>

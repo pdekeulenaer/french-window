@@ -1,0 +1,55 @@
+<div class="col-sm-2">
+     <div class="thumbnail text-center">
+        <legend class="text-center"><h4><strong>Bloodline</strong></h4></legend>
+      <img src="http://www.conniggulden.com/static/uploads/default_site/book_covers/bloodline-conn-iggulden-wars-of-the-roses.jpg" width="80%" alt="...">
+      <div class="caption">
+        <p>Expected <strong>1 Aug 2017</p>
+        <p><a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-eye-open"></span> Watch</a></p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading clearfix" data-toggle="collapse" data-target="#panelcontent_1" role="click-panel">
+      <h3 class="panel-title pull-left">
+          <strong>'+book.title+'</strong> by <i>'+book.author.name+'</i>
+      </h3>
+      <button class="btn btn-default pull-right" onclick="wishlistAdd('+index+','' + htmlEscape(book.title) + '', '' + book.author.id + '','' + book.publish_date + '')">
+          <span class="glyphicon glyphicon-eye-open"></span> Add to wachlist
+      </button>
+    </div>
+     <div id="panelcontent_1" class="panel-collapse collapse">
+        <div class="panel-body">
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img src="'+book.image_link+'" class="media-object">
+              </a>
+            </div>
+            <div class="media-body">
+              <p id="summary_'+index+'">'+htmlEscape(book.summary)+'</p>
+              <p><strong>Expected '+book.publish_date+'</strong></p>
+              <p>
+                <table class="table table-condensed">
+                    <tr>
+                        <td>Title 1</td>
+                        <td>12345670982</td>
+                        <td>Aug 1 2017</td>
+                        <td>Fredrik Backman</td>
+                    </tr>
+                    <tr>
+                        <td>Title 1</td>
+                        <td>12345670982</td>
+                        <td>Aug 1 2017</td>
+                        <td>Fredrik Backman</td>
+                    </tr>
+                </table>
+              </p>
+            </div>
+          </div>
+      </div>
+  </div>
+  </div>
+

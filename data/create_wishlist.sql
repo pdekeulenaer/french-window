@@ -1,0 +1,10 @@
+CREATE TABLE wishlist (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    author_id INTEGER NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    publish_date DATE DEFAULT '1900-01-01',
+    summary TEXT NULL,
+    notes TEXT NULL,
+    time_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

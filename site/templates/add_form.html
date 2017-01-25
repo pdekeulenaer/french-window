@@ -1,0 +1,226 @@
+$def with (message, prefill, edit)
+
+$var msg: $message
+
+$ show = prefill is not None
+
+$code
+    if edit:
+        heading = "Update book"
+        action = "/books/edit/"
+        submitval = "Update book"
+        authorid = prefill.author.id
+    else:
+        heading = "Add a new book"
+        action = "/books/add/"
+        submitval = "Add book"
+        authorid = -1
+
+    if show:
+        if prefill.author is None:
+            authorname = prefill.author_name
+            authorid = 'Michael Mcintyre'
+        else:
+            authorname = prefill.author.name
+            authorid = prefill.author.id
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('#author_name').autocomplete({
+            serviceUrl: '/ajax/search_author/',
+            ajaxSettings: { method: 'POST'},
+            onSelect: function(suggestion) {
+                setAuthor(suggestion.data);
+            }
+        });
+    });
+
+    function setAuthor(id){
+        jQuery('#author_id').val(id);
+    };
+
+    function hideSeries(){
+        jQuery('#series_nr_field').hide();
+        jQuery('#series_name_field').hide();
+    };
+
+    function showSeries(){
+        jQuery('#series_nr_field').show();
+        jQuery('#series_name_field').show();
+    };
+
+    $if show:
+        function prefillData(){
+            $$('#title').val('$prefill.title');
+            $$('#author_name').val('$authorname');
+            $$('#publisher').val('$prefill.publisher');
+            $$('#language').val('$prefill.language');
+            $$('#isbn10').val('$prefill.isbn10');
+            $$('#isbn13').val('$prefill.isbn13');
+            $$('#summary').val('$prefill.summary');
+
+            $if prefill.is_series == 'yes':
+                $$('#is_series_yes').prop('checked', true);
+                showSeries();
+            $if prefill.is_series != 'yes':
+                $$('#is_series_no').prop('checked', true);
+                hideSeries();
+            $$('#series_nr').val('$prefill.series_nr');
+            setAuthor($authorid);
+            // $$('#series_name').val('prefill.series_name');
+        };
+
+
+
+    function toggleSeries(){
+        jQuery(':radio').change(function (event) {
+            var id = jQuery(this).data('id');
+            if (id == 'is_series_yes') {
+                showSeries();
+            } else if (id == 'is_series_no') {
+                hideSeries();
+            }
+        });
+    };
+
+    jQuery(document).ready(function(){
+        toggleSeries();
+        $if show:
+            prefillData();
+    });
+
+</script>
+
+<h2>$heading</h2>
+<hr />
+
+<form method='POST' action="$action" class="form-horizontal">
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="title">Title</label>
+    <div class="col-sm-10">
+        <input type="text" class="a" id="title" name="title" placeholder="Enter title">
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2" for="author_name">Author</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="author_name" name="authors.name" placeholder="Enter author">
+        <input type="hidden" id="author_id" name="author_id">
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="publisher">Publisher</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="publisher" name="publisher" placeholder="Publisher">
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2" for="language">Language</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="language" name="language" placeholder="en">
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2" for="isbn10">ISBN10</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="isbn10" name="isbn10" placeholder="ISBN10 number">
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2" for="isbn13">ISBN13</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="isbn13" name="isbn13" placeholder="ISBN13 number">
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="summary">Summary</label>
+    <div class="col-sm-10">
+        <textarea type="text" class="form-control" id="summary" name="summary" placeholder="Enter summary" rows="5"></textarea>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="is_series">Part of series?</label>
+    <div class="col-sm-10">
+        <input type="radio" class="radio-inline" id="is_series_yes" name="is_series" data-id="is_series_yes">Yes
+        <input type="radio" class="radio-inline" id="is_series_no" name="is_series" data-id="is_series_no">No
+    </div>
+</div>
+
+<div class="form-group" id="series_name_field">
+    <label class="control-label col-sm-2" for="series_name">Series</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="series_name" name="series_name" placeholder="Series name - To be implemented" disabled>
+    </div>
+</div>
+
+<div class="form-group" id="series_nr_field">
+    <label class="control-label col-sm-2" for="series_nr"># in series</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="series_nr" name="series_nr" placeholder="1">
+    </div>
+</div>
+
+
+<div class="form-group">
+    <div class="col-sm-12">
+        <input type="submit" class="form-control btn-primary" value="$submitval">
+    </div>
+</div>
+
+<!-- <table border='0px' width='400px'>
+
+    <tr>
+        <td width='30%'>Title</td>
+        <td width='70%'><input type="text" name="title" id="title"></td>
+    </tr>
+    <tr>
+        <td>Author</td>
+        <td><input type="text" name="authors.name" id="author_name"></td>
+        <input type="hidden" name="author_id" value="-1" id="author_id">
+    </tr>
+    <tr>
+        <td>Language</td>
+        <td><input type="text" name="language" id="language"></td>
+    </tr>
+    <tr>
+        <td>ISBN10</td>
+        <td><input type="text" name="isbn10" id='isbn10'></td>
+    </tr>
+    <tr>
+        <td>ISBN13</td>
+        <td><input type="text" name="isbn13" id="isbn13"></td>
+    </tr>
+    <tr>
+        <td>Publisher</td>
+        <td><input type="text" name="publisher" id="publisher"></td>
+    </tr>
+    <tr>
+        <td>Summary</td>
+        <td><textarea name="summary" rows="5" cols="22" id="summary"></textarea></td>
+    </tr>
+    <tr>
+        <td>Is series?</td>
+        <td><input type="radio" name="is_series" value="yes"> Yes
+            <input type="radio" name="is_series" value="no" checked> No
+        </td>
+    </tr>
+    <tr>
+        <td>Series nr</td>
+        <td><input type="number" name="series_nr"></td>
+    </tr>
+    <tr>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <center><input type="submit" value="Add book"></center>
+        </td>
+    </tr>
+</table> -->
+
+</form>
+
+

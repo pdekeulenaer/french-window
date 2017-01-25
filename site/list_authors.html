@@ -1,0 +1,29 @@
+$def with (message, data)
+$var msg: $message
+
+
+
+
+          <h2 class="sub-header">All authors</h2>
+          <div class="table">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="col-md-1">#</th>
+                  <th class="col-md-8">Author</th>
+                  <th class="col-md-2"># books</th>
+                </tr>
+              </thead>
+              <tbody>
+              $for el in data:
+                <tr>
+                    <td>$loop.index</td>
+                    <td><a href='/books/list/?authors.id=$el.id'>$el.name</a></td>
+                    <td>$el.nbooks</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+</table>

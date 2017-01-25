@@ -1,0 +1,913 @@
+{
+ "kind": "books#volumes",
+ "totalItems": 47,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "P9jXAgAAQBAJ",
+   "etag": "haaVFyPtau0",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/P9jXAgAAQBAJ",
+   "volumeInfo": {
+    "title": "Madame Hemingway",
+    "subtitle": "Roman",
+    "authors": [
+     "Paula McLain"
+    ],
+    "publisher": "Aufbau Digital",
+    "publishedDate": "2011-06-27",
+    "description": "Chicago 1920: Hadley Richardson hat die Liebe und das Glück bereits aufgegeben, als sie Ernest Hemingway trifft und sofort von seinem guten Aussehen, seiner Gefühlstiefe und seiner Kunst, mit Worten zu verführen, angezogen wird. Die beiden heiraten und gehen nach Paris, wo sie Teil einer schillernden Gruppe Amerikaner werden, unter ihnen Gertrude Stein, Ezra Pound und die Fitzgeralds. Doch im Paris der goldenen 20er – fiebrig, glamourös, verwegen – lassen sich Familie und Treue kaum aufrechterhalten. Während Hadley, inzwischen Mutter, mit Eifersucht und Selbstzweifeln ringt und Ernests literarische Arbeit allmählich Früchte trägt, wird das Paar mit einer Enttäuschung konfrontiert, die das Ende all dessen bedeutet, was es gemeinsam erträumt hatte.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9783841203069"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "384120306X"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": true
+    },
+    "pageCount": 464,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "1.3.3.0.preview.3",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=P9jXAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=P9jXAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "de",
+    "previewLink": "http://books.google.at/books?id=P9jXAgAAQBAJ&printsec=frontcover&dq=inauthor:Paula+McLain&hl=&cd=1&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=P9jXAgAAQBAJ&source=gbs_api",
+    "canonicalVolumeLink": "https://market.android.com/details?id=book-P9jXAgAAQBAJ"
+   },
+   "saleInfo": {
+    "country": "AT",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 7.99,
+     "currencyCode": "EUR"
+    },
+    "retailPrice": {
+     "amount": 7.99,
+     "currencyCode": "EUR"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=P9jXAgAAQBAJ&rdid=book-P9jXAgAAQBAJ&rdot=1&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 7990000.0,
+       "currencyCode": "EUR"
+      },
+      "retailPrice": {
+       "amountInMicros": 7990000.0,
+       "currencyCode": "EUR"
+      }
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "AT",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true
+    },
+    "pdf": {
+     "isAvailable": true
+    },
+    "webReaderLink": "http://books.google.at/books/reader?id=P9jXAgAAQBAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Chicago 1920: Hadley Richardson hat die Liebe und das Glück bereits aufgegeben, als sie Ernest Hemingway trifft und sofort von seinem guten Aussehen, seiner Gefühlstiefe und seiner Kunst, mit Worten zu verführen, angezogen wird."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "aMVuCQAAQBAJ",
+   "etag": "m60ZubqCY1Y",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/aMVuCQAAQBAJ",
+   "volumeInfo": {
+    "title": "Lady Africa",
+    "subtitle": "Roman",
+    "authors": [
+     "Paula McLain"
+    ],
+    "publisher": "Aufbau Digital",
+    "publishedDate": "2015-08-21",
+    "description": "Die Frau, die den Himmel bezwang Aufgewachsen als Tochter eines Lords im afrikanischen Busch, interessiert sich die junge Beryl nicht für Seidenkleider und Etikette. Dafür ist sie stark und mutig wie ein Kipsigis-Junge und hat von ihrem Vater alles über Rassepferde gelernt. Doch im britischen Protektorat – dem späteren Kenia – der vorigen Jahrhundertwende ist kein Platz für solch ein ungezähmtes Mädchen. Bis sie in Karen Blixen eine Seelenverwandte findet – und in deren Geliebtem, dem Flieger und Großwildjäger Denys Finch Hutton, das Abenteuer ihres Lebens. Die Autorin des internationalen Bestsellers „Madame Hemingway“ erzählt in diesem großen Afrika-Epos die wahre Geschichte der Flugpionierin Beryl Markham, die als erste Frau den Atlantik überquerte.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9783841210289"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "3841210287"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 464,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "1.4.4.0.preview.2",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=aMVuCQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=aMVuCQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "de",
+    "previewLink": "http://books.google.at/books?id=aMVuCQAAQBAJ&pg=PT394&dq=inauthor:Paula+McLain&hl=&cd=2&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=aMVuCQAAQBAJ&source=gbs_api",
+    "canonicalVolumeLink": "https://market.android.com/details?id=book-aMVuCQAAQBAJ"
+   },
+   "saleInfo": {
+    "country": "AT",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 7.99,
+     "currencyCode": "EUR"
+    },
+    "retailPrice": {
+     "amount": 7.99,
+     "currencyCode": "EUR"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=aMVuCQAAQBAJ&rdid=book-aMVuCQAAQBAJ&rdot=1&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 7990000.0,
+       "currencyCode": "EUR"
+      },
+      "retailPrice": {
+       "amountInMicros": 7990000.0,
+       "currencyCode": "EUR"
+      }
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "AT",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.at/books/reader?id=aMVuCQAAQBAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Paula \u003cb\u003eMcLain\u003c/b\u003e studierte an der University of Michigan Kreatives Schreiben und \u003cbr\u003e\nlebte in den Künstlerkolonien Yaddo und MacDowell. Nach zwei \u003cbr\u003e\nGedichtsammlungen und einem ersten Roman gelang ihr mit dem in 35 \u003cbr\u003e\nSprachen übersetzten&nbsp;..."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "qE2FPaaAa6wC",
+   "etag": "AgABU8SXg5w",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/qE2FPaaAa6wC",
+   "volumeInfo": {
+    "title": "The Paris Wife",
+    "subtitle": "A Novel",
+    "authors": [
+     "Paula McLain"
+    ],
+    "publisher": "Ballantine Books",
+    "publishedDate": "2011-02-22",
+    "description": "“A beautiful portrait of being in Paris in the glittering 1920s—as a wife and as one’s own woman.”—Entertainment Weekly A deeply evocative story of ambition and betrayal, The Paris Wife captures the love affair between two unforgettable people: Ernest Hemingway and his wife Hadley. Chicago, 1920: Hadley Richardson is a quiet twenty-eight-year-old who has all but given up on love and happiness—until she meets Ernest Hemingway. Following a whirlwind courtship and wedding, the pair set sail for Paris, where they become the golden couple in a lively and volatile group—the fabled “Lost Generation”—that includes Gertrude Stein, Ezra Pound, and F. Scott Fitzgerald. Though deeply in love, the Hemingways are ill prepared for the hard-drinking, fast-living, and free-loving life of Jazz Age Paris. As Ernest struggles to find the voice that will earn him a place in history and pours himself into the novel that will become The Sun Also Rises, Hadley strives to hold on to her sense of self as her roles as wife, friend, and muse become more challenging. Eventually they find themselves facing the ultimate crisis of their marriage—a deception that will lead to the unraveling of everything they’ve fought so hard for. A heartbreaking portrayal of love and torn loyalty, The Paris Wife is all the more poignant because we know that, in the end, Hemingway wrote that he would rather have died than fallen in love with anyone but Hadley. NEW YORK TIMES BESTSELLER WINNER—BEST HISTORICAL FICTION—GOODREADS CHOICE AWARDS NAMED ONE OF THE BEST BOOKS OF THE YEAR BY People • Chicago Tribune • NPR • The Philadelphia Inquirer • Kirkus Reviews • The Toronto Sun • BookPage Look for special features inside. Join the Circle for author chats and more.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780345521323"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0345521323"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 336,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 3755,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": true,
+    "contentVersion": "2.12.7.0.preview.2",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=qE2FPaaAa6wC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=qE2FPaaAa6wC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.at/books?id=qE2FPaaAa6wC&printsec=frontcover&dq=inauthor:Paula+McLain&hl=&cd=3&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=qE2FPaaAa6wC&source=gbs_api",
+    "canonicalVolumeLink": "https://market.android.com/details?id=book-qE2FPaaAa6wC"
+   },
+   "saleInfo": {
+    "country": "AT",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 15.43,
+     "currencyCode": "EUR"
+    },
+    "retailPrice": {
+     "amount": 15.43,
+     "currencyCode": "EUR"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=qE2FPaaAa6wC&rdid=book-qE2FPaaAa6wC&rdot=1&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 1.543E7,
+       "currencyCode": "EUR"
+      },
+      "retailPrice": {
+       "amountInMicros": 1.543E7,
+       "currencyCode": "EUR"
+      }
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "AT",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.at/books/download/The_Paris_Wife-sample-epub.acsm?id=qE2FPaaAa6wC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.at/books/reader?id=qE2FPaaAa6wC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "As Ernest struggles to find the voice that will earn him a place in history and pours himself into the novel that will become The Sun Also Rises, Hadley strives to hold on to her sense of self as her roles as wife, friend, and muse become ..."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "MK9oBgAAQBAJ",
+   "etag": "PEnzpkad+U4",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/MK9oBgAAQBAJ",
+   "volumeInfo": {
+    "title": "Circling the Sun",
+    "authors": [
+     "Paula McLain"
+    ],
+    "publisher": "Hachette UK",
+    "publishedDate": "2015-07-28",
+    "description": "As a young girl, Beryl Markham was brought to Kenya from Britain by parents dreaming of a new life. For her mother, the dream quickly turned sour, and she returned home; Beryl was brought up by her father, who switched between indulgence and heavy-handed authority, allowing her first to run wild on their farm, then incarcerating her in the classroom. The scourge of governesses and serial absconder from boarding school, by the age of sixteen Beryl had been catapulted into a disastrous marriage - but it was in facing up to this reality that she took charge of her own destiny. Scandalizing high society with her errant behaviour, she left her husband and became the first woman ever to hold a professional racehorse trainer's licence. After falling in with the notoriously hedonistic and gin-soaked Happy Valley set, Beryl soon became embroiled in a complex love triangle with the writer Karen Blixen and big game-hunter Denys Finch Hatton (immortalized in Blixen's memoir Out of Africa). It was this unhappy affair which set tragedy in motion, while awakening Beryl to her truest self, and to her fate: to fly.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9781405511674"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "1405511672"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 384,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 3607,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": true,
+    "contentVersion": "1.5.5.0.preview.2",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=MK9oBgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=MK9oBgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.at/books?id=MK9oBgAAQBAJ&printsec=frontcover&dq=inauthor:Paula+McLain&hl=&cd=4&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=MK9oBgAAQBAJ&source=gbs_api",
+    "canonicalVolumeLink": "https://market.android.com/details?id=book-MK9oBgAAQBAJ"
+   },
+   "saleInfo": {
+    "country": "AT",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 4.49,
+     "currencyCode": "EUR"
+    },
+    "retailPrice": {
+     "amount": 4.49,
+     "currencyCode": "EUR"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=MK9oBgAAQBAJ&rdid=book-MK9oBgAAQBAJ&rdot=1&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 4490000.0,
+       "currencyCode": "EUR"
+      },
+      "retailPrice": {
+       "amountInMicros": 4490000.0,
+       "currencyCode": "EUR"
+      }
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "AT",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.at/books/download/Circling_the_Sun-sample-epub.acsm?id=MK9oBgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.at/books/reader?id=MK9oBgAAQBAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "And at the heart of the novel is Beryl herself: dazzling, contradictory, brave, passionate and reckless, whose great loss in love finally frees her to pursue her dreams of flight - and freedom."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "RugDsnuF9e8C",
+   "etag": "J/CG/gynGK4",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/RugDsnuF9e8C",
+   "volumeInfo": {
+    "title": "The Paris Wife Deluxe Edition",
+    "authors": [
+     "Paula McLain"
+    ],
+    "publisher": "Hachette UK",
+    "publishedDate": "2012-11-29",
+    "description": "Chicago, 1920: Hadley Richardson is a shy twenty-eight-year-old who has all but given up on love and happiness when she meets Ernest Hemingway and is captivated by his energy, intensity and burning ambition to write. After a whirlwind courtship and wedding, the pair set sail for France. But glamorous Jazz Age Paris, full of artists and writers, fuelled by alcohol and gossip, is no place for family life and fidelity. Ernest and Hadley's marriage begins to founder, and the birth of a beloved son serves only to drive them further apart. Then, at last, Ernest's ferocious literary endeavours begin to bring him recognition - not least from a woman intent on making him her own . . . This Deluxe Edition ebook features more than ninety additional pages of exclusive, author-approved annotations to enrich your reading experience. The annotations, which include new illustrations and photographs, are linked to throughout the text, so you can access them as you read or use them as supplemental material after finishing the novel. There is also a bonus Reading Group Guide, sure to inspire discussion at book clubs everywhere.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9781405524599"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "1405524596"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 400,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": true,
+    "contentVersion": "1.2.3.0.preview.2",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=RugDsnuF9e8C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=RugDsnuF9e8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.at/books?id=RugDsnuF9e8C&printsec=frontcover&dq=inauthor:Paula+McLain&hl=&cd=5&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=RugDsnuF9e8C&source=gbs_api",
+    "canonicalVolumeLink": "https://market.android.com/details?id=book-RugDsnuF9e8C"
+   },
+   "saleInfo": {
+    "country": "AT",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 7.99,
+     "currencyCode": "EUR"
+    },
+    "retailPrice": {
+     "amount": 7.99,
+     "currencyCode": "EUR"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=RugDsnuF9e8C&rdid=book-RugDsnuF9e8C&rdot=1&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 7990000.0,
+       "currencyCode": "EUR"
+      },
+      "retailPrice": {
+       "amountInMicros": 7990000.0,
+       "currencyCode": "EUR"
+      }
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "AT",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.at/books/download/The_Paris_Wife_Deluxe_Edition-sample-epub.acsm?id=RugDsnuF9e8C&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.at/books/reader?id=RugDsnuF9e8C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": ". . This Deluxe Edition ebook features more than ninety additional pages of exclusive, author-approved annotations to enrich your reading experience."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "iQHoS9dbQDwC",
+   "etag": "0mQtIOdQNu0",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/iQHoS9dbQDwC",
+   "volumeInfo": {
+    "title": "Less of Her",
+    "authors": [
+     "Paula McLain"
+    ],
+    "publisher": "New Issues Poetry & Prose",
+    "publishedDate": "1999-09",
+    "description": "Poetry. \"In Paula McLain's book LESS OF HER, the soul steps forward and sings a torch song. The song is both fevered and measured, bearing the double burden of an almost unforgivable past and the possibility of mercy in the future. And the voice is naked, urgent, unflinching, a girl's voice in the mouth of a woman or a woman's voice in the mouth of a girl. This is a first book to listen to again and again.\"--Bruce Smith",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0932826822"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780932826824"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 75,
+    "printType": "BOOK",
+    "categories": [
+     "Poetry"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "2.2.1.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=iQHoS9dbQDwC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=iQHoS9dbQDwC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.at/books?id=iQHoS9dbQDwC&dq=inauthor:Paula+McLain&hl=&cd=6&source=gbs_api",
+    "infoLink": "http://books.google.at/books?id=iQHoS9dbQDwC&dq=inauthor:Paula+McLain&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.at/books/about/Less_of_Her.html?hl=&id=iQHoS9dbQDwC"
+   },
+   "saleInfo": {
+    "country": "AT",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "AT",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.at/books/reader?id=iQHoS9dbQDwC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "&quot; In this collection of female voices, grief and the sadnesses of desire are catalysts, but love consoles, redeems, &quot;make[s] everything sing.&quot; These humane and ageless poems demand our attention."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "pyBuvKI9XaYC",
+   "etag": "TSZpAIm0kQA",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/pyBuvKI9XaYC",
+   "volumeInfo": {
+    "title": "A Ticket to Ride",
+    "subtitle": "A Novel",
+    "authors": [
+     "Paula McLain"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2009-10-13",
+    "description": "In the long, hot Illinois summer of 1973, insecure, motherless Jamie falls under the dangerous spell of her older, more worldly cousin Fawn, who’s come to stay with Jamie and her uncle as penance for committing an “unmentionable act.” It is a time of awakenings and corruptions, of tragedy and loss, as Jamie slowly discovers the extent to which Fawn will use anything and anyone to further her own ends—and recognizes, perhaps too late, her own complicity in the disaster that takes shape around them. “A captivating story about a teenager’s struggle to be accepted by her peers. . . . The story is more than believable—it simply comes alive. The book perfectly captures the free-spirited attitude of the decade and the curiosity of adolescence.”—Tampa Tribune “McLain compels as she excavates two tragedies.” —Chicago Sun-Times",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0061870331"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780061870330"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 272,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 2,
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": true,
+    "contentVersion": "0.4.6.0.preview.2",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=pyBuvKI9XaYC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=pyBuvKI9XaYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.at/books?id=pyBuvKI9XaYC&printsec=frontcover&dq=inauthor:Paula+McLain&hl=&cd=7&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=pyBuvKI9XaYC&source=gbs_api",
+    "canonicalVolumeLink": "https://market.android.com/details?id=book-pyBuvKI9XaYC"
+   },
+   "saleInfo": {
+    "country": "AT",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 10.47,
+     "currencyCode": "EUR"
+    },
+    "retailPrice": {
+     "amount": 10.47,
+     "currencyCode": "EUR"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=pyBuvKI9XaYC&rdid=book-pyBuvKI9XaYC&rdot=1&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 1.047E7,
+       "currencyCode": "EUR"
+      },
+      "retailPrice": {
+       "amountInMicros": 1.047E7,
+       "currencyCode": "EUR"
+      }
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "AT",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.at/books/download/A_Ticket_to_Ride-sample-epub.acsm?id=pyBuvKI9XaYC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.at/books/reader?id=pyBuvKI9XaYC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "The book perfectly captures the free-spirited attitude of the decade and the curiosity of adolescence.”—Tampa Tribune “McLain compels as she excavates two tragedies.” —Chicago Sun-Times"
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "QqMxAgAAQBAJ",
+   "etag": "3vSgPeCVy4k",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/QqMxAgAAQBAJ",
+   "volumeInfo": {
+    "title": "Een eerste liefde in Parijs",
+    "authors": [
+     "Paula McLain"
+    ],
+    "publisher": "Atlas Contact",
+    "publishedDate": "2011-03-04",
+    "description": "Hij zou de beroemdste Amerikaanse auteur van de twintigste eeuw worden, zij zijn 'vergeten' eerste vrouw. Maar wanneer ze elkaar in 1920 ontmoeten is Ernest Hemingway niets meer dan een journalist met schrijversaspiraties, gewond teruggekeerd uit de Eerste Wereldoorlog. Elizabeth Hadley Richardson was acht jaar ouder dan hij en geloofde als geen ander in zijn talent. Hun huwelijk zou niet meer dan zes jaar duren, en voerde hen van Chicago naar Parijs, een leven dat zich afspeelde in het Quartier Latin en de literaire salons van Gertrude Stein. Hemingway groeit in zijn rol als schrijver, totdat hij de 'bescherming' van Elizabeth niet meer nodig heeft. Als Hemingway een verhouding met een andere vrouw begint, beseft ze dat hun huwelijk voorbij is. Een eerste liefde in Parijs is een indringend verhaal over twee mensen bij wie de vlam der liefde langzaam dooft, terwijl Hemingways ster steeds meer schittert. 'Hij zou nooit meer onbekend zijn. Wij zouden nooit meer zo gelukkig zijn,' schrijft Paula McLain in deze roman over romantiek en opoffering, vrijheidsdrang en geborgenheid. Een eerste liefde in Parijs is niet alleen een liefdevol portret van een beginnend schrijver, het is ook een roman over de kunst van het loslaten.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9789045801469"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "9045801469"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": true
+    },
+    "pageCount": 303,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "1.1.1.0.preview.3",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=QqMxAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=QqMxAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "nl",
+    "previewLink": "http://books.google.at/books?id=QqMxAgAAQBAJ&printsec=frontcover&dq=inauthor:Paula+McLain&hl=&cd=8&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=QqMxAgAAQBAJ&source=gbs_api",
+    "canonicalVolumeLink": "https://market.android.com/details?id=book-QqMxAgAAQBAJ"
+   },
+   "saleInfo": {
+    "country": "AT",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 9.99,
+     "currencyCode": "EUR"
+    },
+    "retailPrice": {
+     "amount": 9.99,
+     "currencyCode": "EUR"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=QqMxAgAAQBAJ&rdid=book-QqMxAgAAQBAJ&rdot=1&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 9990000.0,
+       "currencyCode": "EUR"
+      },
+      "retailPrice": {
+       "amountInMicros": 9990000.0,
+       "currencyCode": "EUR"
+      }
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "AT",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.at/books/download/Een_eerste_liefde_in_Parijs-sample-epub.acsm?id=QqMxAgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.at/books/download/Een_eerste_liefde_in_Parijs-sample-pdf.acsm?id=QqMxAgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "webReaderLink": "http://books.google.at/books/reader?id=QqMxAgAAQBAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Een eerste liefde in Parijs is niet alleen een liefdevol portret van een beginnend schrijver, het is ook een roman over de kunst van het loslaten."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "A-ozDQAAQBAJ",
+   "etag": "1V8akps0rsE",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/A-ozDQAAQBAJ",
+   "volumeInfo": {
+    "title": "For tæt på solen",
+    "authors": [
+     "Paula McLain"
+    ],
+    "publisher": "Art People",
+    "publishedDate": "2016-10-06",
+    "description": "Historisk roman om den britiske eventyrerske og flyvepioner Beryl Markhams liv (1902–86) og hendes møde med Karen Blixen i Afrika. FIRE ÅR GAMMEL FLYTTER BERYL MARKHAM til Kenya med sin familie for at søge lykken. Drømmen brister, familien går i opløsning, og Beryl vokser op med sin far og de lokale stammefolk, indtil skæbnesvangre begivenheder tvinger hende hjemmefra. Hun ender i et ustabilt ægteskab, får job som hestetræner og baner sig vej ind i kredsen af europæiske bohemer og aristokrater i den britiske koloni. Her møder hun den danske forfatter in spe Karen Blixen og hendes elsker Denys Finch Hatton. Det bliver begyndelsen på et venskab mellem den gådefulde og livskloge Karen, den uudgrundelige Finch Hatton og Beryl, der lever som en paria og ikke kan finde sig til rette i rollen som hustru, mor og kvinde. Men det bliver også mødet med en kærlighed, som ændrer alt. FOR TÆT PÅ SOLEN er en stærk fortælling om en frihedselskende kvinde, der brød med tidens normer og forestillinger. Om at forfølge sin passion og om nødvendigheden af at mærke luften under vingerne, selvom det kan koste dyrt.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9788771594133"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "8771594132"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 400,
+    "printType": "BOOK",
+    "categories": [
+     "History"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "1.1.1.0.preview.2",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=A-ozDQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=A-ozDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "da",
+    "previewLink": "http://books.google.at/books?id=A-ozDQAAQBAJ&printsec=frontcover&dq=inauthor:Paula+McLain&hl=&cd=9&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=A-ozDQAAQBAJ&source=gbs_api",
+    "canonicalVolumeLink": "https://market.android.com/details?id=book-A-ozDQAAQBAJ"
+   },
+   "saleInfo": {
+    "country": "AT",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 30.93,
+     "currencyCode": "EUR"
+    },
+    "retailPrice": {
+     "amount": 30.93,
+     "currencyCode": "EUR"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=A-ozDQAAQBAJ&rdid=book-A-ozDQAAQBAJ&rdot=1&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 3.093E7,
+       "currencyCode": "EUR"
+      },
+      "retailPrice": {
+       "amountInMicros": 3.093E7,
+       "currencyCode": "EUR"
+      }
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "AT",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.at/books/download/For_t%C3%A6t_p%C3%A5_solen-sample-epub.acsm?id=A-ozDQAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.at/books/reader?id=A-ozDQAAQBAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Historisk roman om den britiske eventyrerske og flyvepioner Beryl Markhams liv (1902–86) og hendes møde med Karen Blixen i Afrika."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "RO2eCwAAQBAJ",
+   "etag": "4LMpmhDITDU",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/RO2eCwAAQBAJ",
+   "volumeInfo": {
+    "title": "Rondom de zon",
+    "authors": [
+     "Paula McLain"
+    ],
+    "publisher": "Overamstel Uitgevers",
+    "publishedDate": "2016-06-07",
+    "description": "In 1904 reist de kleine Beryl naar Kenia. In de steek gelaten door haar moeder, wordt ze opgevoed door haar vader en leden van de Kipsigis-stam die in de buurt wonen. Haar ongewone stijl om paarden te trainen trekt de aandacht van Europese expats. Safari-jager Denys verovert haar hart, hoewel hij ook een relatie heeft met de fascinerende Karen Blixen. De liefde van Denys stimuleert Beryl om haar tweede droom - de eerste vrouwelijke bushpiloot van Kenia worden - te realiseren.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9789044350210"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "9044350218"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": true
+    },
+    "pageCount": 400,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "1.3.3.0.preview.3",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=RO2eCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=RO2eCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "nl",
+    "previewLink": "http://books.google.at/books?id=RO2eCwAAQBAJ&printsec=frontcover&dq=inauthor:Paula+McLain&hl=&cd=10&source=gbs_api",
+    "infoLink": "https://play.google.com/store/books/details?id=RO2eCwAAQBAJ&source=gbs_api",
+    "canonicalVolumeLink": "https://market.android.com/details?id=book-RO2eCwAAQBAJ"
+   },
+   "saleInfo": {
+    "country": "AT",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 9.99,
+     "currencyCode": "EUR"
+    },
+    "retailPrice": {
+     "amount": 9.99,
+     "currencyCode": "EUR"
+    },
+    "buyLink": "https://play.google.com/store/books/details?id=RO2eCwAAQBAJ&rdid=book-RO2eCwAAQBAJ&rdot=1&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 9990000.0,
+       "currencyCode": "EUR"
+      },
+      "retailPrice": {
+       "amountInMicros": 9990000.0,
+       "currencyCode": "EUR"
+      }
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "AT",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.at/books/download/Rondom_de_zon-sample-epub.acsm?id=RO2eCwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.at/books/download/Rondom_de_zon-sample-pdf.acsm?id=RO2eCwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "webReaderLink": "http://books.google.at/books/reader?id=RO2eCwAAQBAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "In 1904 reist de kleine Beryl naar Kenia."
+   }
+  }
+ ]
+}

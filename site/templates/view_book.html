@@ -1,0 +1,56 @@
+$def with (message, book)
+
+$var msg: $message
+
+<table border='0px' width='400px'>
+
+    <tr>
+        <td width='30%'>Title</td>
+        <td width='70%'>$:book.title</td>
+    </tr>
+    <tr>
+        <td>Author</td>
+        <td width='70%'>$:book.author.name</td>
+    </tr>
+    <tr>
+        <td>Language</td>
+        <td width='70%'>$:book.language</td>
+    </tr>
+    <tr>
+        <td>ISBN10</td>
+        <td width='70%'>$:book.isbn10</td>
+    </tr>
+    <tr>
+        <td>ISBN13</td>
+        <td width='70%'>$:book.isbn13</td>
+    </tr>
+    <tr>
+        <td>Publisher</td>
+        <td width='70%'>$:book.publisher</td>
+    </tr>
+    <tr>
+        <td>Summary</td>
+        <td width='70%'>$:book.summary</td>
+    </tr>
+    <tr>
+        <td>Is series?</td>
+        <td width='70%'>$:book.is_series</td>
+    </tr>
+    <tr>
+        <td>Series nr</td>
+        <td width='70%'>$:book.series_nr</td>
+    </tr>
+    <tr>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <center>
+                <form method='POST' action="/books/delete/">
+                <input type='hidden' name='id' value='$book.id'>
+                <input type='submit' name='delete' value='Delete'>
+                <input type='button' onclick="location.href = '/books/edit/$book.id';" value="Edit">
+                </form>
+            </center>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,29 @@
+$def with (message)
+
+$var msg: $message
+
+<b>Please login</b>
+
+
+
+<form method='POST' action="/auth/login/">
+<input type='hidden' name='redirect' value='/books/list/'>
+<table border='0px' width='400px'>
+
+    <tr>
+        <td width='30%'>Username</td>
+        <td width='70%'><input type="text" name="username" id="username"></td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td><input type="password" name="password" id="password"></td>
+    </tr>
+    <tr>
+    <tr>
+        <td colspan="2">
+            <center><input type="submit" value="Login"></center>
+        </td>
+    </tr>
+</table>
+
+</form>
