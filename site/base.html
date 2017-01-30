@@ -1,7 +1,7 @@
 $def with (content)
 
 $code
-    authed = ('is_authenticated' in session)
+    authed = ('is_authenticated' in session.keys())
 
     def auth():
         if authed:

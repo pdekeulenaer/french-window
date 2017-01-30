@@ -213,8 +213,11 @@ class AuthorPages(Page):
 class BookPages(Page):
     def GET(self, page=None, *args,**kwargs):
         if page is None: return self.list_books()
-        elif page == 'list': return self.list_books()
-        elif page == 'add' : return self.add_book_get()
+        elif page == 'list':
+	    rv = self.list_books()
+	    print rv
+	    return rv
+	elif page == 'add' : return self.add_book_get()
         elif page == 'view' : return self.view_book(*args)
         elif page == 'edit' : return self.edit_book_get(*args)
         elif page == 'isbn' : return self.api_form()
@@ -231,7 +234,7 @@ class BookPages(Page):
 
     @authenticated
     def list_books(self):
-        data = dict(web.input())
+	data = dict(web.input())
 
         # process any filters if required
         data['user_id'] = session.user_id

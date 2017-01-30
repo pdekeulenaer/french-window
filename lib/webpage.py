@@ -1,4 +1,5 @@
 from auth import authenticated, Authenticator
+import util
 import web
 import json
 import re
@@ -109,7 +110,7 @@ class Controller(object):
     def ajax_add(self):
         data = web.input()
         data['user_id'] = self.session.user_id
-        data['summary'] = sanitize(data.summary)
+        data['summary'] = util.html_sanitize(data.summary)
         obj = self.model.from_dict(data)
         uid = obj.save()
         return json.dumps('OK')

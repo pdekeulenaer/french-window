@@ -51,15 +51,12 @@ class Authenticator(object):
     @classmethod
     def authenticated(cls, f):
         def wrapper(page, *args , **kwargs):
-            if 'is_authenticated' in page.session and page.session.is_authenticated:
-
-                # if len(args) == 0:
-                return f(page, *args, **kwargs)
-                # else:
-                #     return f(page, *args)
-            else:
+	    if 'is_authenticated' in page.session.keys() and page.session.is_authenticated:
+        	return f(page, *args, **kwargs)
+	    else:
                 msg = 'Not logged in!'
-                return web.seeother('/auth/login/?msg='+msg)
+		return web.seeother('/auth/login/?msg='+msg)
+		
         return wrapper
 
 #define decorators
