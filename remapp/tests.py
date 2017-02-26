@@ -1,6 +1,8 @@
 import cv2
 import scanner
 from PIL import Image
+import urllib2
+import json
 
 class Viewer:
     def __init__(self, windowname='Preview Window', feed=1):
@@ -10,6 +12,9 @@ class Viewer:
 
         #initialize scanner
         self.scanner = scanner.Scanner()
+
+        # set processing function
+        self.process_func = None
 
     def start(self):
         stream = cv2.VideoCapture(self.feed)
@@ -33,15 +38,41 @@ class Viewer:
             self.capture.release()
         cv2.destroyAllWindows()
 
+    def set_processf(self, func):
+        self.process_func = func
+
     def process(self, frame):
         # open PIL image
         pil = Image.fromarray(frame).convert('L')
         res = self.scanner.scan(pil)
-        print res
 
+        if len(res) == 0:
+            return
+
+        if self.process_func is None:
+            return
+
+
+        key = res[0]['value']
+        data = self.process_func(key)
+        print data
+
+
+class RemoteAccess:
+    def __init__(self, host='localhost:8080'):
+        self.host = host
+
+    def fetch(self, key):
+        query = 'http://%s/scan/ajax_bookdata/?key=%s' % (self.host, key)
+        records = urllib2.urlopen(query).read()
+        data = json.loads(records)
+        return data
 
 if __name__ == '__main__':
     v = Viewer()
+    racc = RemoteAccess()
+
+    v.set_processf(racc.fetch)
     v.start()
 
 # if vc.isOpened(): # try to get the first frame
