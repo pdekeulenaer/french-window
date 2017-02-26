@@ -55,6 +55,7 @@ class ScanPage(lib.webpage.Controller):
 
         if book is None:
             msg = 'Book not found - please enter data manually'
+            book = Book()
         else:
             # Look up author
             author = Author.select({'name':book.author_name})

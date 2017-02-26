@@ -1,0 +1,5 @@
+SERVER INSTALL
+
+- install NGINX (sudo apt-get install nginx)
+- download uwsgi (sudo pip install uwsgi)
+-

@@ -1,0 +1,40 @@
+FEATURES
+    [CORE]
+        Author watchlist
+        pagination
+        Image Scan (Rpi app)
+    [OPT]
+        Search for author online
+        Fallback ISBN search through Google?
+        Cleaner 'query' object
+        User context restrictions in core model
+        Fix testing suite (linking objects)
+        User registration
+        Sorting search results (in javascript?)
+        Build a 'set foreign class' function
+        Encapsulate is_series boolean - make sure the return is actually a boolean when loading
+        Change series_nr to number, not int (eg. 2.5 is valid)
+        Undo delete
+        Form validation check
+        Series description mgr
+
+STRUCTURE
+    [CORE]
+        Global MSG construct to use
+        Remove hardcoded links (esp. in Auth class)
+    [OPT]
+        Define error classes and use them
+        Create DB scripts to easily define new tables
+
+VISUALS
+    Overall beautification (bootstrap theme)
+    Mobile access
+    Different msg bar colouring
+    Different layout for series view
+
+
+
+LONG TERM
+    Mobile scan (iPhone app)
+    Mobile app
+    God mode
