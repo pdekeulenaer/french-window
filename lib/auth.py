@@ -2,6 +2,9 @@ import web
 import models
 from db.dbschema import Schema
 
+import hashlib
+
+
 class User(models.Model):
     def __init__(self):
         self._is_authenticated = False
@@ -27,8 +30,9 @@ class User(models.Model):
             self._is_authenticated = False
             return self._is_authenticated
 
-        # TODO introduce hashing
-        if (self.password == provided_pw):
+        hashpw = hashlib.sha256(provided_pw).hexdigest()
+
+        if (self.password == hashpw):
             self._is_authenticated = True
         else:
             self._is_authenticated = False
@@ -56,7 +60,7 @@ class Authenticator(object):
 	    else:
                 msg = 'Not logged in!'
 		return web.seeother('/auth/login/?msg='+msg)
-		
+
         return wrapper
 
 #define decorators

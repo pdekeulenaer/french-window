@@ -180,7 +180,6 @@ class AuthorPages(Page):
 
         a = Author.from_dict(data)
         a.save()
-        print a
 
         msg = 'Successfully added author %s (id %s)' % (a.name, str(a.id))
         return web.seeother('/authors/list/?msg='+msg)
@@ -213,11 +212,8 @@ class AuthorPages(Page):
 class BookPages(Page):
     def GET(self, page=None, *args,**kwargs):
         if page is None: return self.list_books()
-        elif page == 'list':
-	    rv = self.list_books()
-	    print rv
-	    return rv
-	elif page == 'add' : return self.add_book_get()
+        elif page == 'list': return self.list_books()
+    	elif page == 'add' : return self.add_book_get()
         elif page == 'view' : return self.view_book(*args)
         elif page == 'edit' : return self.edit_book_get(*args)
         elif page == 'isbn' : return self.api_form()
@@ -492,7 +488,6 @@ class AuthPages(Page):
     def login_post(self):
         target = '/books/'
         msg = ''
-
         data = web.input()
         u = self.auth.login(data['username'],data['password'])
         if u is not None:
