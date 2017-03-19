@@ -244,6 +244,9 @@ class Wishlist(lib.models.Model):
     # Comparing only title & author
     # Uses string matching utility
     def matchbook(self, book):
+        print 'NEW MATCH'
+        print self.title
+        print book
         titlematch = lib.util.issimilar(self.title, book.title)
         authormatch = lib.util.issimilar(self.author.name, book.author.name)
         print 'Title match %s; Author match %s' % (str(titlematch), str(authormatch))

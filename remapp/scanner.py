@@ -14,10 +14,17 @@ class Scanner(object):
         pil = Image.open(img_loc).convert('L')  #Convert to grayscale
         self.scan(pil)
 
+    def scanframe(self, frame):
+        pil = Image.fromarray(frame).convert('L')
+        res = self.scan(pil)
+        return res
+
     # Assumes a grayscale picture in PIL object
     def scan(self, pil):
+
         (w,h) = pil.size
         data = pil.tobytes()
+
         img = zbar.Image(w,h,'Y800',data)
         self.img_scanner.scan(img)
 
@@ -25,6 +32,5 @@ class Scanner(object):
         for symbol in img:
             if 'ISBN' in str(symbol.type):
                 symbolreturns.append({'type': str(symbol.type), 'value': str(symbol.data)})
-                print symbol.type, ": ", symbol.data
-
+                # print symbol.type, ": ", symbol.data
         return symbolreturns

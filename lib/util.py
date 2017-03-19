@@ -31,7 +31,9 @@ def best_match(keyword, possibilities, cutoff=SIMILARITY_CUTOFF_DEFAULT):
     return None
 
 def html_sanitize(s):
-    return s.replace("'","&#39;").replace('"',"&#34;")
+    if type(s) == str or type(s) == unicode:
+        return s.replace("'","&#39;").replace('"',"&#34;")
+    return s
 
 def url_encode(s):
     return urllib.quote_plus(s)

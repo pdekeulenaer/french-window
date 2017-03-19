@@ -230,7 +230,7 @@ class BookPages(Page):
 
     @authenticated
     def list_books(self):
-	data = dict(web.input())
+    	data = dict(web.input())
 
         # process any filters if required
         data['user_id'] = session.user_id
@@ -329,11 +329,16 @@ class BookPages(Page):
             errormsg = 'No valid identifier specified'
             return web.seeother('/books/list/?msg='+errormsg)
 
+        #unquote stuff
+        print book.summary
+        book.summary = web.net.htmlunquote(book.summary)
+        print book.summary
+
         return render.add_book(message='', prefill=book, edit=True)
 
     @authenticated
     def edit_book_post(self, book_id=None):
-        data = web.input()
+        data = self.inputdata()
 
         # get original book
         if book_id is None or not(book_id.isdigit()):

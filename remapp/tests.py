@@ -1,6 +1,7 @@
 import cv2
 import scanner
 from PIL import Image
+from PIL import ImageTk
 import urllib2
 import json
 
@@ -9,20 +10,36 @@ class Viewer:
         self.windowname = windowname
         self.feed = feed
         self.capture = None
-
+        self.vidstream = None
         #initialize scanner
         self.scanner = scanner.Scanner()
 
         # set processing function
-        self.process_func = None
+        def testproc(key):
+            print key
+        self.process_func = testproc
 
     def start(self):
-        stream = cv2.VideoCapture(self.feed)
+        self.vidstream = cv2.VideoCapture(self.feed)
 
+
+    def snap(self):
+        #TODO assume stream has started
+        r, frame = self.vidstream.read()
+        frame = cv2.flip(frame, 1)
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
+        return frame
+
+    def snaptk(self):
+        frame = self.snap()
+        img = Image.fromarray(frame)
+        imgtk = ImageTk.PhotoImage(image=img)
+        return imgtk
+
+
+    def stream(self):
         while (True):
-            r, frame = stream.read()
-
-            # show image
+            frame = self.snap()
             cv2.imshow(self.windowname, frame)
 
             self.process(frame)
@@ -33,10 +50,14 @@ class Viewer:
                 self._clean()
                 break
 
+    def stop(self):
+        self._clean()
+
     def _clean(self):
         if (self.capture is not None):
             self.capture.release()
         cv2.destroyAllWindows()
+        self.vidstream = None
 
     def set_processf(self, func):
         self.process_func = func
@@ -70,10 +91,8 @@ class RemoteAccess:
 
 if __name__ == '__main__':
     v = Viewer()
-    racc = RemoteAccess()
-
-    v.set_processf(racc.fetch)
     v.start()
+    v.stream()
 
 # if vc.isOpened(): # try to get the first frame
 #     rval, frame = vc.read()

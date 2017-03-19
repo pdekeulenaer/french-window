@@ -4,16 +4,19 @@ $var msg: $message
 
 $code
     show = (prefill is not None)
+    summary = ''
     if edit:
         heading = "Update book"
         action = "/books/edit/%s" % (prefill.id)
         submitval = "Update book"
         authorid = prefill.author.id
+        summary = prefill.summary
     else:
         heading = "Add a new book to your library"
         action = "/books/add/"
         submitval = "Add book"
         authorid = -1
+        summary = prefill.summary
 
     if show:
         if prefill.author is None:
@@ -63,7 +66,6 @@ $code
             $$('#language').val('$prefill.language');
             $$('#isbn10').val('$prefill.isbn10');
             $$('#isbn13').val('$prefill.isbn13');
-            $$('#summary').val('$prefill.summary');
             $$('#publish_date').val('$prefill.publish_date')
 
             $if prefill.is_series == 'True':
@@ -156,7 +158,7 @@ $code
 <div class="form-group">
     <label class="control-label col-sm-2" for="summary">Summary</label>
     <div class="col-sm-10">
-        <textarea type="text" class="form-control" id="summary" name="summary" placeholder="Enter summary" rows="5"></textarea>
+        <textarea type="text" class="form-control" id="summary" name="summary" placeholder="Enter summary" rows="5">$summary</textarea>
     </div>
 </div>
 
