@@ -43,10 +43,10 @@ $code
                 setActiveNav('books_list')
             } else if (beginsWith('/books/add/', url)) {
                 setActiveNav('books_add')
-            } else if (beginsWith('/books/search/', url)){
-                setActiveNav('books_search')
             } else if (beginsWith('/books/isbn/', url)) {
                 setActiveNav('books_isbn')
+            } else if (beginsWith('/wishlist/list/', url)) {
+                setActiveNav('wishlist_list')
             } else if (beginsWith('/wishlist/search/', url)) {
                 setActiveNav('wishlist_search')
             } else if (beginsWith('/scan/scan/'), url) {
@@ -96,11 +96,13 @@ $code
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li id="books_list"><a href="/books/list/">View my library</a></li>
-            <li id="books_search"><a href="/books/search/">Search my library</a></li>
+<!--            <li id="books_search"><a href="/books/search/">Search my library</a></li> -->
             <li id="books_add"><a href="/books/add/">Add book (manual)</a></li>
             <li id="books_isbn"><a href="/books/isbn/">Add book (ISBN scan)</a></li>
             <li class="nav-divider"></li>
-            <li id="wishlist_search"><a href="/wishlist/search/">Manage wishlist</a></li>
+            <li id="wishlist_list"><a href="/wishlist/list/">Your wishlist</a></li>
+            <li id="wishlist_search"><a href="/wishlist/search/">Add books to wishlist</a></li>
+            <li class="nav-divider"></li>
             <li id="scan" class="disabled"><a href="/scan/scan/" >Scan books <i>(Disabled</i>)</a></li>
           </ul>
         </div>

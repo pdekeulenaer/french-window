@@ -2,27 +2,79 @@ $def with (message, books)
 $var msg: $message
 
           <h2 class="sub-header">My library ($len(books) books)</h2>
+
+
+
+          <div class="panel panel-default">
+            <div class="panel-heading clearfix" data-toggle="collapse" data-target="mytarget" role="click-panel">
+              <h3 class="panel-title pull-left">
+                Search
+              </h3>
+            </div>
+           <form method='GET' action="/books/list/" class="form-horizontal">
+            <div id="mytarget" class="panel-collapse">
+              <div class="panel-body">
+                <div class="media">
+              <div class="form-group">
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="title" name="title" placeholder="Book Title [Chamber of secrets]">
+                </div>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="authors.name" name="authors.name" placeholder="Author [Conn Iggulden]">
+                </div>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="series.name" name="series.name" placeholder="Series [Wheel of time]">
+                </div>
+                <div class="col-sm-2">
+                  <input type="submit" class="form-control btn-primary" value="Search" name="search">
+                </div>
+                <div class="col-sm-1">
+                  <button type="button" class="btn btn-default form-control" onclick="location.href ='/books/list/'">Reset</button>
+                </div>
+            </div>
+            </form>
+
+            </div>
+            </div>
+          </div>
+        </div>
+          <hr />
+
           <div class="table">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th class="col-md-1">#</th>
-                  <th class="col-md-4">Title</th>
-                  <th class="col-md-3">Author</th>
-                  <th class="col-md-3">Publisher</th>
-                  <th class="col-md-1">Actions</th>
+                  <th class="col-md-4">Title
+                                <a id="title_up" href="/books/list/"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+                                <a id="title_down" href="/books/list/"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+                  </th>
+                  <th class="col-md-3">Author
+                                <a id="author_up" href="/books/list/"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+                                <a id="author_down" href="/books/list/"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+                  </th>
+                  <th class="col-md-3">Series
+                                <a id="series_up" href="/books/list/"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+                                <a id="series_down" href="/books/list/" class="hover"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+                  </th>
+                  <th class="col-md-1">#
+                                <a id="series_nr_up" href="/books/list/"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+                                <a id="series_nr_down" href="/books/list/" class="hover"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+                  </th>
+                  <th class="col-md-1">Actions
+                  </th>
                 </tr>
               </thead>
               <tbody>
               $for book in books:
                 <tr>
-                    <td>$loop.index</td>
                     <td><a href='/books/view/$book.id'>$book.title</a></td>
                     <td><a href='/books/list/?authors.id=$book.author.id'>$book.author.name</a></td>
                     $if book.is_series == 'True':
-                      <td><a href="/series/view/$book.series.id">$book.series.name</a></td>
+                      <td><a href="/books/list/?series.id=$book.series.id">$book.series.name</a></td>
+                      <td>$book.series_nr</td>
                     $else:
-                      <td><i>Not part of series</i></td>
+                      <td><i>-</i></td>
+                      <td><i>-</i></td>
 
                     <td>
                         <div>
@@ -42,3 +94,36 @@ $var msg: $message
 
 
 </table>
+
+
+<script type="text/javascript">
+
+  function addSortURLs(field, varname){
+    var s = window.location.search;
+    if (s == '') {
+      s = '?';
+    } else {
+      var params = s.split('&');
+      s = '';
+      for (var i = 0; i < params.length; i++) {
+        if (!(params[i].startsWith('order=') || params[i].startsWith('sortfield='))){
+          s += params[i]+'&';
+        };
+      };
+    };
+
+    var url = window.location.pathname + s + '&sortfield=' + varname + '&order=';
+    $$('#'+field+'_up').attr('href',url+'False');
+    $$('#'+field+'_down').attr('href',url+'True');
+    console.log($$('#'+field+'_up').attr('href'));
+  }
+
+  jQuery(document).ready(function() {
+    addSortURLs('title','title');
+    addSortURLs('author', 'authors.name');
+    addSortURLs('series', 'series.name')
+    addSortURLs('series_nr', 'series_nr')
+  });
+
+</script>
+

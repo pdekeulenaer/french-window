@@ -1,0 +1,107 @@
+$def with (message, objects)
+$var msg: $message
+
+<style>
+.hiddenRow {
+    padding: 0 !important;
+}
+</style>
+
+<div class="col-sm-8">
+    <h3>View the books currently on your list</h3>
+    <hr />
+      <div class="table">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="col-sm-4">Book title
+                                <a id="title_up" href="/books/list/"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+                                <a id="title_down" href="/books/list/"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+
+              </th>
+              <th class="col-sm-2">Author
+                                <a id="author_name_up" href="/books/list/"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+                                <a id="author_name_down" href="/books/list/"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+
+              </th>
+              <th class="col-sm-2">Publish date
+                                <a id="publish_date_up" href="/books/list/"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+                                <a id="publish_date_down" href="/books/list/"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+          $for o in objects:
+            <tr data-toggle="collapse" data-target="#detail_$loop.index" class="accordion-toggle" id="row_$loop.index">
+                <td>$o.title</td>
+                <td><a href='/books/list/?authors.id=$o.author.id'>$o.author.name</a></td>
+                <td>$o.publish_date
+                <div class="pull-right">
+                    <a href="" onclick="wishlistDelete($o.id)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </div>
+                </td>
+            </tr>
+            <tr id="row_detail_$loop.index">
+            <td colspan="3" class="hiddenRow"><div class="accordion-body collapse" id="detail_$loop.index">$o.summary</div></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+</div>
+<div class="col-sm-4">
+    <h3>Your current trackers</h3>
+    <hr>
+</div>
+
+<script type="text/javascript">
+
+  function addSortURLs(field, varname){
+    var s = window.location.search;
+    if (s == '') {
+      s = '?';
+    } else {
+      var params = s.split('&');
+      s = '';
+      for (var i = 0; i < params.length; i++) {
+        if (!(params[i].startsWith('order=') || params[i].startsWith('sortfield='))){
+          s += params[i]+'&';
+        };
+      };
+    };
+
+    var url = window.location.pathname + s + '&sortfield=' + varname + '&order=';
+    $$('#'+field+'_up').attr('href',url+'False');
+    $$('#'+field+'_down').attr('href',url+'True');
+    console.log($$('#'+field+'_up').attr('href'));
+  }
+
+    function wishlistDelete(id){
+        $$.ajax({
+            type: 'POST',
+            url: '/wishlist/ajax_delete/',
+            dataType: 'json',
+            data: {
+                'id': id
+            },
+            success: wishlistRemoveRow(id)
+        });
+    };
+
+    function wishlistRemoveRow(id){
+        $$('#row_'+id).hide();
+        $$('#row_detail_'+id).hide();
+    };
+
+  jQuery(document).ready(function() {
+    addSortURLs('title','title');
+    addSortURLs('author_name', 'authors.name');
+    addSortURLs('publish_date', 'publish_date')
+  });
+
+
+
+</script>

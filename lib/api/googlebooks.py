@@ -85,7 +85,6 @@ class GoogleBooksAPI(object):
     @staticmethod
     def parse_book(book, data):
         # pp = pprint.PrettyPrinter()
-
         if 'items' not in data.keys():
             if 'volumeInfo' in data.keys():
                 bookdata = data['volumeInfo']
@@ -93,7 +92,6 @@ class GoogleBooksAPI(object):
                 return None
         else:
             books = data['items']
-            assert len(books) == 1
             bookdata = books[0]['volumeInfo']
 
         # set the values

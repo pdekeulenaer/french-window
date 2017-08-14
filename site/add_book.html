@@ -16,9 +16,10 @@ $code
         action = "/books/add/"
         submitval = "Add book"
         authorid = -1
-        summary = prefill.summary
+        summary = ""
 
     if show:
+        summary = prefill.summary
         if prefill.author is None:
             authorname = prefill.author_name
             authorid = '-1'

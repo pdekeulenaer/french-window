@@ -67,9 +67,23 @@ class Controller(object):
 
     @authenticated
     def list_data(self):
+
+        exact = {}
+        approx = {}
+        sorting = {}
+
         data = web.input()
-        data['user_id'] = self.session.user_id
-        objs = self.model.select_all(self.model.prune_fields(data))
+
+        exact['user_id'] = self.session.user_id
+        # data['user_id'] = self.session.user_id
+
+        # ordering
+        if 'sortfield' in data.keys():
+            sorting = {data['sortfield']: not(data['order'] == 'False')}
+
+        objs = self.model.search(exact=exact, approx=approx, sort=sorting)
+        # objs = self.model.select_all(self.model.prune_fields(data))
+
         return objs
 
     @authenticated

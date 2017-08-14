@@ -98,9 +98,10 @@ class Model(object):
     # searches one record specified with 'AND' parameters
     # params is a map with field -> value pairs
     @classmethod
-    def select(cls, params):
+    def select(cls, params, sort={}):
         p = cls.fix_prefix(params)
-        res = get_db().select(cls.schema, p)
+        sort = cls.fix_prefix(sort)
+        res = get_db().select(cls.schema, p,sort)
 
         if res is None:
             return None
@@ -109,9 +110,10 @@ class Model(object):
     # returns a list of all matching objects (in order returned by query)
     # assuming exact matches (e.g., lookups by keys, ids, etc)
     @classmethod
-    def select_all(cls, params={}):
+    def select_all(cls, params={}, sort={}):
         p = cls.fix_prefix(params)
-        res = get_db().select_all(cls.schema, p)
+        sort = cls.fix_prefix(sort)
+        res = get_db().select_all(cls.schema, p, sort)
         if res is None: return
         objects = []
 
@@ -122,10 +124,11 @@ class Model(object):
         return objects
 
     @classmethod
-    def search(cls, exact={}, approx={}):
+    def search(cls, exact={}, approx={}, sort={}):
         ex = cls.fix_prefix(exact)
         appr = cls.fix_prefix(approx)
-        res = get_db().search(cls.schema, ex, appr)
+        sort = cls.fix_prefix(sort)
+        res = get_db().search(cls.schema, ex, appr, sort)
         if res is None: return []
         objects = []
 

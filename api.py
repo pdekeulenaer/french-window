@@ -1,8 +1,7 @@
 # defines a JSON API exposing minimal functionality of the webserver
 import web
-import webserver
 from lib.api import GoogleBooksAPI
-from models import Book, Author, Wishlist
+from models import Book, Author, Wishlist, Series
 import lib
 
 import json
@@ -61,7 +60,7 @@ class MyAPI(object):
         print '---------------------------------'
         print data
 
-        author = Author.search_plus({'id':data['author_id'],'name':data['author_name']})
+        author = Author.search_plus({'name':data['author_name']})
 
 
         book.author = author
@@ -69,9 +68,10 @@ class MyAPI(object):
 
         book.user_id = user.id
 
-        if (data['is_series'] == 'True'):
+        if (data['is_series']):
+            print "ADDING SERIES"
             book.is_series = True
-            series = Series.search_plus({'id':data['series_id'], 'name':data['series_name']})
+            series = Series.search_plus({'name':data['series_name']})
             book.series = series
             book.series_id = series.id
         else:
@@ -113,6 +113,8 @@ class MyAPI(object):
         isbn = data['isbn']
         api = GoogleBooksAPI()
         googledata = api.search_isbn(isbn)
+
+        print googledata
 
         book = Book.parse_from_api(api, googledata)
 

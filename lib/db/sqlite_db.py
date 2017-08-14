@@ -11,6 +11,20 @@ class SQLiteConn(Connection):
         self.conn = sqlite3.connect(db)
         self.c = self.conn.cursor()
 
+    def execute(self, qobj):
+        sql = qobj.createSQL()
+        self.db_execute(sql)
+        if qobj.STORE_RESULTS:
+            return self.fetch(qobj.fields)
+
+    def db_execute(self, sql):
+        self.c.execute(sql)
+        self.conn.commit()
+
+    def fetch(self, fields):
+        res = self.c.fetchall()
+        res = map(lambda l: dict(zip(fields, l)), res)
+        return res
 
     # Unit test written
     def store(self, schema, valuemap):
@@ -70,41 +84,22 @@ class SQLiteConn(Connection):
         self.c.execute(query)
         self.conn.commit()
 
-    # Returns a dictionary with key -> value
-    # Unit test written
-    def select(self, schema, valuemap, singleRes=True):
-        # get field list
-        (table, fields) = schema.full_view()
-        fieldlist = ', '.join(fields)
 
-        f = []
-        # get filter
-        for (field, value) in valuemap.items():
-            if type(value) == int:
-                f.append('%s = %s' % (field, value))
-            else:
-                f.append("%s = '%s'" % (field, value))
+    # TODO - merge with search
+    def select(self, schema, valuemap, sort={}, singleRes=True):
+        qobj = Select(schema)
 
-        fullfilter = ' AND '.join(f)
+        for (f,v) in valuemap.items():
+            qobj.add_filter(f,v,True)
+        for (f,o) in sort.items():
+            qobj.add_sort(f, o)
 
-        # build query
-        if (len(fullfilter)>0):
-            q = 'SELECT %s FROM %s WHERE %s' % (fieldlist, table, fullfilter)
-        else:
-            q = 'SELECT %s FROM %s' % (fieldlist, table)
+        res = self.execute(qobj)
 
-        self.c.execute(q)
-        self.conn.commit()
+        if len(res) == 0:   return None
+        if singleRes:       return res[0]
 
-        if singleRes:
-            res = self.c.fetchone()
-            if res is None:
-                return None
-            return dict(zip(fields, res))
-        else:
-            res = self.c.fetchall()
-            res = map(lambda l: dict(zip(fields, l)),res)
-            return res
+        return res
 
     def count(self, schema, valuemap):
         # get field list
@@ -134,41 +129,77 @@ class SQLiteConn(Connection):
 
     # select all objects satisfying the valuemap, return a dictionary per record
     # unit test written
-    def select_all(self, schema, valuemap):
+    def select_all(self, schema, valuemap, sort={}):
         return self.select(schema, valuemap, singleRes=False)
 
     # tested
-    def search(self, schema, exactmap={}, approxmap={}):
-        # get field list
-        (table, fields) = schema.full_view()
-        fieldlist = ', '.join(fields)
+    def search(self, schema, exactmap={}, approxmap={}, sort={}):
+        qobj = Select(schema)
 
-        f = []
-        # get filter
-        for (field, value) in approxmap.items():
-            f.append("%s LIKE '%%%s%%'" % (field, value))
-        for (field, value) in exactmap.items():
-            f.append("%s = '%s'" % (field, value))
+        for (f,v) in exactmap.items():
+            qobj.add_filter(f,v,True)
+        for (f,v) in approxmap.items():
+            qobj.add_filter(f,v,False)
+        for (f,o) in sort.items():
+            qobj.add_sort(f, o)
 
-        fullfilter = ' AND '.join(f)
-
-        # build query
-        if (len(fullfilter)>0):
-            q = 'SELECT %s FROM %s WHERE %s' % (fieldlist, table, fullfilter)
-        else:
-            q = 'SELECT %s FROM %s' % (fieldlist, table)
-
-        self.c.execute(q)
-        self.conn.commit()
-
-        res = self.c.fetchall()
-        res = map(lambda l: dict(zip(fields, l)),res)
+        res = self.execute(qobj)
         return res
+
 
     @staticmethod
     def connect(self):
         db = SQLiteConn()
         return db
+
+class QueryObject(object):
+    STORE_RESULTS = False
+
+    def __init__(self, schema):
+        self.schema = schema
+        (self.table, self.fields) = schema.full_view()
+        self.where = []
+        self.sort = []
+        self.limit = None
+
+    def createSQL(self):
+        print "ERR - to be implemented"
+
+    def filterSQL(self):
+        if len(self.where) == 0:
+            return ''
+        return 'WHERE %s' % (' AND '.join(self.where))
+
+    def sortSQL(self):
+        if len(self.sort) == 0:
+            return ''
+        return 'ORDER BY %s' % (', '.join(self.sort))
+
+    def add_filter(self, field, value, exact=True):
+        if not(exact):
+            value = "%%%s%%" % (value)
+        if exact:
+            operator = '='
+        else:
+            operator = 'LIKE'
+        self.where.append("%s %s '%s'" % (field, operator, value))
+
+    def add_sort(self, field, asc=True):
+        if asc:
+            operator = 'ASC'
+        else:
+            operator = 'DESC'
+        self.sort.append("%s %s" % (field, operator))
+
+
+class Select(QueryObject):
+
+    STORE_RESULTS = True
+
+    def createSQL(self):
+        fieldlist = ', '.join(self.fields)
+        sql = 'SELECT %s FROM %s %s %s' % (fieldlist, self.table, self.filterSQL(), self.sortSQL())
+        return sql
 
 if __name__ == '__main__':
     db = SQLiteConn('db/french_window.db')

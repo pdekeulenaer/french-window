@@ -78,7 +78,6 @@ class TestDB(unittest.TestCase):
 
 def suite():
     db_suite =  unittest.TestLoader().loadTestsFromTestCase(TestDB)
-
     return unittest.TestSuite([db_suite])
 
 

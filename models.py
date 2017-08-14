@@ -102,7 +102,9 @@ class Book(lib.models.Model):
         self.id = None
 
     def __str__(self):
-        return "'%s' by %s. (ISBN: %s)" % (self.title, self.author.name, self.isbn13)
+        # if (self.author is None):
+        return "'%s' by %s. (ISBN: %s)" % (self.title, self.author_name, self.isbn13)
+        # return "'%s' by %s. (ISBN: %s)" % (self.title, self.author.name, self.isbn13)
 
     @staticmethod
     def parse_from_api(api, data):
@@ -222,7 +224,7 @@ class Wishlist(lib.models.Model):
         self.author_id = None
         self.notes = ''
         self.summary = ''
-        self.publish_id = ''
+        self.publish_data = ''
 
     @classmethod
     def set_schema(cls):

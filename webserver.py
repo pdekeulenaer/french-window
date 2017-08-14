@@ -2,6 +2,7 @@ import web
 import lib
 import config
 import scan
+import api
 
 # import decorators
 from lib.auth import authenticated
@@ -24,6 +25,7 @@ urls = (
     '/authors/(.+)/(.*)', 'AuthorPages',
     '/scan/(.+)/', 'scan.ScanPage',
     '/series/(.+)/(.*)', 'SeriesPage',
+    '/api/(.*)', 'api.MyAPI',
 )
 
 urls += WishlistPage.urls()
@@ -60,13 +62,12 @@ class Page(object):
             return data['msg']
         return ''
 
-
     # Clean data - TODO change to decorator
     def inputdata(self):
         data = web.input()
         pdata = {}
         for (k,v) in data.items():
-            pdata[k] = lib.util.html_sanitize(str(v))
+            pdata[k] = lib.util.html_sanitize(v.encode('utf-8'))
 
         return pdata
 
@@ -130,6 +131,7 @@ class WishlistPage(lib.webpage.Controller):
         self.clearfunctions()
         self.functions['search'] = 'search'
         self.functions['add'] = 'add'
+        self.functions['list'] = 'list'
         self.functions['ajax_list'] = 'ajax_list'
         self.functions['ajax_delete'] = 'ajax_delete'
         self.functions['ajax_add'] = 'ajax_add'
@@ -217,7 +219,7 @@ class BookPages(Page):
         elif page == 'view' : return self.view_book(*args)
         elif page == 'edit' : return self.edit_book_get(*args)
         elif page == 'isbn' : return self.api_form()
-        elif page == 'search' : return self.search()
+#        elif page == 'search' : return self.search()
         elif page == 'delete' : return self.delete_book(*args)
 
     def POST(self, page=None, *args, **kwargs):
@@ -228,18 +230,23 @@ class BookPages(Page):
         elif page == 'isbn' : return self.api_fetch()
         elif page == 'ajax_save' : return self.ajax_save()
 
+
+    # TODO - set GET flags (?filter={authors.id=255}&search={title=The,author=John})
     @authenticated
     def list_books(self):
-    	data = dict(web.input())
+        sorting = {}
+        data = web.input();
 
-        # process any filters if required
-        data['user_id'] = session.user_id
-        data['in_library'] = 1
+        # search filters
+        valid_keys = ('title', 'authors.id', 'series.name', 'series.id')
+        search_keys = dict(filter(lambda (k,v): k in valid_keys and len(data[k])>0, data.items()))
 
-        msg = self.get_msg()
-        books = Book.select_all(Book.prune_fields(data))
+        # ordering
+        if 'sortfield' in data.keys():
+            sorting = {data['sortfield']: not(data['order'] == 'False')}
 
-        return render.list_books(message=msg, books=books)
+        books = Book.search(exact={'user_id':session.user_id}, approx=search_keys, sort=sorting)
+        return render.list_books(message=self.get_msg(), books=books)
 
     @authenticated
     def view_book(self,book_id=None):
@@ -399,7 +406,6 @@ class BookPages(Page):
 
         book = Book.parse_from_api(api, data)
 
-
         if book is None:
             msg = 'Book not found - please enter data manually'
         else:
@@ -413,23 +419,6 @@ class BookPages(Page):
             msg = 'Book found in google DB - please confirm the data'
 
         return render.add_book(message=msg, prefill=book, edit=False)
-
-    @authenticated
-    def search(self):
-        data = web.input();
-
-        valid_keys = ('title',)
-        search_keys = dict(filter(lambda (k,v): k in valid_keys, data.items()))
-
-        if len(search_keys) == 0:
-            # return standard search form
-            return render.search_book(message='')
-        else:
-            # do search
-            books = Book.search(exact={'user_id':session.user_id}, approx=search_keys)
-            return render.list_books(message='', books=books)
-
-
 
 
 

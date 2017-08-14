@@ -1,3 +1,12 @@
+MEGMEG PRIO
+- better view on wishlist
+--> improve the javascript for main overview page
+- track author
+- track series
+- check sanitization of summaries for wishlist
+- change data type to numeric for series_nr
+
+
 FEATURES
     [CORE]
         Author watchlist

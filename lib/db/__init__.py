@@ -1,5 +1,6 @@
 # imports
 from sqlite_db import SQLiteConn
+import sqlite_db_obj
 
 _DBNAME = 'data/french_window.db'
 _DBNAME_TEST = 'data/test_french_window.db'
