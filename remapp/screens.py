@@ -1,5 +1,6 @@
 import ttk
 import config
+import modals
 from Tkinter import *
 from PIL import Image
 from PIL import ImageTk
@@ -43,16 +44,18 @@ class Main(object):
 
 
     def menu(self):
-        menubar = Menu(self.root)
-        menubar.add_command(label='File', command='file')
-        menubar.add_command(label='Config', command='config')
-        menubar.add_command(label='Close', command=self.root.quit)
-        self.root.config(menu=menubar)
-        def file():
+        def fileMenu():
             pass
 
-        def config():
-            pass
+        def configMenu():
+            modals.ConfigWindow(self.root)
+
+
+        menubar = Menu(self.root)
+        menubar.add_command(label='File', command=fileMenu)
+        menubar.add_command(label='Config', command=configMenu)
+        menubar.add_command(label='Close', command=self.close
+        self.root.config(menu=menubar)
 
     def panes(self):
         p = ttk.Panedwindow(self.root)
@@ -81,6 +84,8 @@ class Main(object):
         # Execute main loop
         self.root.mainloop()
 
+    def close(self):
+        self.root.destroy()
 
 class ViewerPanel(object):
     def __init__(self, root, top=None):
@@ -156,10 +161,6 @@ class ViewerPanel(object):
             print "ERR - top level not defined"
 
         return
-
-    # def force(self):
-    #     isbn = '9780817405021'
-    #     self.scan(isbn)
 
 class Tabs(object):
     def __init__(self, root):
