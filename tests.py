@@ -1,34 +1,22 @@
-import pprint
-from lib.db import get_db
-import models
-import lib
-import config
-
-schema = models.Book.schema
-
-db = lib.db.sqlite_db_obj.Connection('data/test_french_window.db')
-a = lib.db.sqlite_db_obj.Select(models.Book.schema)
-
-
-a.add_filter('user_id', 2)
-a.add_filter('title', 'i', False)
-a.add_sort('series_id')
-a.add_sort('title', False)
-a.fields = ['books.id','books.title','books.user_id','users.name']
-
-res = db.execute(a)
-
-# for i in res:
-#     print i
-#     print "-------------------------------"
-
-
-db = get_db()
-
-vm = {'user_id':2}
-
-resa = db.select(models.Book.schema, vm,True)
-resb = db._select(models.Book.schema, vm,True)
-
-print (resa)
-print (resb)
+@profile
+def primes(n):
+    if n==2:
+        return [2]
+    elif n<2:
+        return []
+    s=range(3,n+1,2)
+    mroot = n ** 0.5
+    half=(n+1)/2-1
+    i=0
+    m=3
+    while m <= mroot:
+        if s[i]:
+            j=(m*m-3)/2
+            s[j]=0
+            while j<half:
+                s[j]=0
+                j+=m
+        i=i+1
+        m=2*i+3
+    return [2]+[x for x in s if x]
+primes(100)

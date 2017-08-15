@@ -4,7 +4,6 @@ from db.dbschema import Schema
 
 import hashlib
 
-
 class User(models.Model):
     def __init__(self):
         self._is_authenticated = False
@@ -55,11 +54,11 @@ class Authenticator(object):
     @classmethod
     def authenticated(cls, f):
         def wrapper(page, *args , **kwargs):
-	    if 'is_authenticated' in page.session.keys() and page.session.is_authenticated:
-        	return f(page, *args, **kwargs)
-	    else:
+    	    if 'is_authenticated' in page.session.keys() and page.session.is_authenticated:
+            	return f(page, *args, **kwargs)
+    	    else:
                 msg = 'Not logged in!'
-		return web.seeother('/auth/login/?msg='+msg)
+    		return web.seeother('/auth/login/?msg='+msg)
 
         return wrapper
 

@@ -6,6 +6,9 @@ import api
 
 # import decorators
 from lib.auth import authenticated
+from lib.timer import profile
+
+
 from models import Book, Author, Series, Wishlist, BookWork
 from lib.api import GoogleBooksAPI
 
@@ -232,6 +235,7 @@ class BookPages(Page):
 
     # TODO - set GET flags (?filter={authors.id=255}&search={title=The,author=John})
     @authenticated
+    @profile
     def list_books(self):
         sorting = {}
         data = web.input();
