@@ -2,7 +2,7 @@ import lib
 import web
 
 # configuration settings
-DEBUG = True
+DEBUG = False
 
 # database settings
 lib.db.DB_TYPE = 'sqlite'

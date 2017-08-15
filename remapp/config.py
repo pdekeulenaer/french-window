@@ -1,7 +1,7 @@
 import ConfigParser
 
 # Static values
-debug = True
+debug = False
 cfg_file = 'config.cfg'
 
 

@@ -47,6 +47,8 @@ class MyAPI(object):
 
         (msg, book) = self._add_book(u, bookdata)
 
+        print bookdata
+
         if book is not None:
             return json.dumps({'msg':msg, 'book':book.json_parse()})
         else:
@@ -86,6 +88,7 @@ class MyAPI(object):
 
         # remove book from wishlist
         wishes = Wishlist.select_all({'user_id':user.id})
+        if wishes is None: wishes = []
         matched_wishlist = filter(lambda l: l.matchbook(book), wishes)
 
         if len(matched_wishlist) > 0:

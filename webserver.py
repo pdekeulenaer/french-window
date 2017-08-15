@@ -297,6 +297,7 @@ class BookPages(Page):
 
         # remove book from wishlist
         wishes = Wishlist.select_all({'user_id':session.user_id})
+        if wishes is None: wishes = []
         matched_wishlist = filter(lambda l: l.matchbook(book), wishes)
 
         if len(matched_wishlist) > 0:

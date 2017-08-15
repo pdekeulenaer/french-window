@@ -54,7 +54,7 @@ class Main(object):
         menubar = Menu(self.root)
         menubar.add_command(label='File', command=fileMenu)
         menubar.add_command(label='Config', command=configMenu)
-        menubar.add_command(label='Close', command=self.close)
+        menubar.add_command(label='Close', command=self.destroy)
         self.root.config(menu=menubar)
 
     def panes(self):
@@ -83,9 +83,6 @@ class Main(object):
     def start(self):
         # Execute main loop
         self.root.mainloop()
-
-    def close(self):
-        self.root.destroy()
 
 class ViewerPanel(object):
     def __init__(self, root, top=None):
@@ -230,7 +227,7 @@ class BookScreen(object):
 
 
         # Author name
-        authorname = ''
+        authorname = self.data['author_name']
         print self.data
         if 'author' in self.data.keys() and self.data['author'] is not None:
             print self.data['author']
@@ -287,7 +284,7 @@ class BookScreen(object):
     def submit(self):
         # Temp hack to test E2E flow
         self.refresh()
-        c = Client('meg','1234')
+        c = Client(config.user,config.password)
         resp = c.add_book(self.data)
         print(resp)
         self.close()
