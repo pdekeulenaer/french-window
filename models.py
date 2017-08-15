@@ -254,8 +254,6 @@ class Wishlist(lib.models.Model):
         print 'Title match %s; Author match %s' % (str(titlematch), str(authormatch))
         return titlematch & authormatch
 
-
-
 Book.schema = Book.set_schema()
 Author.schema = Author.set_schema()
 Series.schema = Series.set_schema()

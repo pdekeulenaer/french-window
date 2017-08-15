@@ -71,7 +71,6 @@ class Page(object):
 
         return pdata
 
-
 class SeriesPage(lib.webpage.Controller):
     session = session
     model = Series

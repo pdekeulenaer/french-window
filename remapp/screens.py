@@ -54,7 +54,7 @@ class Main(object):
         menubar = Menu(self.root)
         menubar.add_command(label='File', command=fileMenu)
         menubar.add_command(label='Config', command=configMenu)
-        menubar.add_command(label='Close', command=self.close
+        menubar.add_command(label='Close', command=self.close)
         self.root.config(menu=menubar)
 
     def panes(self):
